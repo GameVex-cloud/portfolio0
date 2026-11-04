@@ -319,10 +319,7 @@ const GAME_PRICES = {
     offlinePrice:300,onlinePrice:null,
     offlineOffer:null,onlineOffer:null
   },
-  "THE FINALS":{
-    offlinePrice:null,onlinePrice:300,
-    offlineOffer:null,onlineOffer:null
-  },
+  
   "S.T.A.L.K.E.R. 2: Heart of Chornobyl":{
     offlinePrice:300,onlinePrice:null,
     offlineOffer:null,onlineOffer:null
@@ -390,16 +387,15 @@ const NEW_GAMES = [
   "Call of Duty: Modern Warfare 4",
   "EA SPORTS FC 27",
   "Forza Horizon 6",
-  "Marvel's Spider-Man 2",
-  "Assassin's Creed Shadows",
   "Battlefield 6",
   "Call of Duty: Black Ops 7",
   "Hades II",
-  "Hollow Knight: Silksong",
-  "Split Fiction"
+  "Split Fiction",
+  "Phantom Blade Zero"
 ];
 
 const FEATURED_GAMES = [
+  "Phantom Blade Zero",
   "Red Dead Redemption 2",
   "God of War Ragnarök",
   "Elden Ring",
@@ -916,7 +912,6 @@ function closeCart(){
  document.body.style.overflow="";
 }
 
-/* إتمام الطلب */
 function checkout(){
  normalizeCart();
  updateCart();
