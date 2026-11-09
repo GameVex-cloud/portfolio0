@@ -11,135 +11,209 @@
 <body>
 
 <header>
-<div class="nav">
-  <div class="brand">
-    <img src="images/logo.1.jpeg" alt="GAME.VEX Logo" class="site-logo">
-    <h1>GAME.<span>VEX</span></h1>
-  </div>
-  <div class="search">
-    <input id="searchInput" placeholder="ابحث عن لعبة..." oninput="renderAll()">
-  </div>
-  <button class="btn" onclick="openCart()">🛒 السلة <span id="cartCount">0</span></button>
+<div class="container nav">
+<a href="#" class="logo" onclick="showHome();return false">GAME<span>.</span>VEX</a>
+<div class="nav-actions">
+<input class="search" id="searchInput" placeholder="ابحث عن لعبة..." oninput="renderAll()">
+<button class="cart-button" onclick="toggleCart(true)">السلة <span class="cart-count" id="cartCount">0</span></button>
 </div>
+</div>
+
+<nav class="quick-nav">
+<div class="container quick-nav-inner">
+<a class="quick-link active" href="#allGames" onclick="setActiveNav(this)"><span class="nav-dot"></span> كل الألعاب</a>
+<a class="quick-link online" href="#onlineSection" onclick="setActiveNav(this)"><span class="nav-dot"></span> ONLINE</a>
+<a class="quick-link offline" href="#offlineSection" onclick="setActiveNav(this)"><span class="nav-dot"></span> OFFLINE</a>
+<a class="quick-link offers" href="#offersSection" onclick="setActiveNav(this)"><span class="nav-dot"></span> العروض</a>
+<a class="quick-link featured" href="#featuredSection" onclick="setActiveNav(this)"><span class="nav-dot"></span> المميزة</a>
+<a class="quick-link ps" href="#psSection" onclick="setActiveNav(this)"><span class="nav-dot"></span> PlayStation</a>
+</div>
+</nav>
 </header>
 
+<main id="homePage">
+<div class="container">
+
 <section class="hero">
-  <h2>مغامرتك <span class="highlight">تبدأ هنا</span></h2>
-  <p>مرحبًا بك في GAME.VEX، وجهتك لاكتشاف ألعاب الكمبيوتر. اختار لعبتك المفضلة واستمتع بأفضل الألعاب والعروض.</p>
-  <div class="hero-tags">
-    <span class="pill">🎮 ألعاب PC</span>
-    <span class="pill">🌐 Online</span>
-    <span class="pill">🖥️ Offline</span>
-    <span class="pill">🔥 عروض مميزة</span>
-  </div>
-  <button class="btn" onclick="goTo('onlineSection')">تصفح الألعاب ↓</button>
-</section>
-
-<div class="section-head">
-  <h2>التصنيفات</h2>
-  <span class="meta">اختار القسم اللي بتحبه</span>
+<div class="hero-content">
+<h1>عالم الألعاب يبدأ من <span>GAME.VEX</span></h1>
+<p>اكتشف أفضل ألعاب الكمبيوتر وPlayStation، اختار لعبتك واستمتع بتجربة شراء سهلة وسريعة.</p>
+<button class="main-button" onclick="document.getElementById('allGames').scrollIntoView({behavior:'smooth'})">استكشف الألعاب</button>
 </div>
-<section class="categories" id="categories"></section>
+</section>
 
-<div class="section-head">
-  <h2>اختار طريقة اللعب</h2>
-  <span class="meta">تصفح الألعاب حسب النوع</span>
+<section class="section" id="allGames">
+<div class="section-heading">
+<div class="section-title-group">
+<div class="section-icon">🎮</div>
+<div>
+<h2>جميع <span>الألعاب</span></h2>
+<p class="section-subtitle">اختار لعبتك من مكتبة GAME.VEX</p>
 </div>
-<section class="categories">
-  <button class="category" onclick="goTo('onlineSection')"><span class="emoji">🌐</span>ألعاب PC أونلاين</button>
-  <button class="category" onclick="goTo('offlineSection')"><span class="emoji">🖥️</span>ألعاب PC أوفلاين</button>
-  <button class="category" onclick="goTo('topSection')"><span class="emoji">🏆</span>أفضل 10 ألعاب</button>
-  <button class="category" onclick="goTo('onlineOffersSection')"><span class="emoji">🔥</span>عروض الأونلاين</button>
-  <button class="category" onclick="goTo('offlineOffersSection')"><span class="emoji">🏷️</span>عروض الأوفلاين</button>
+</div>
+</div>
+<div class="categories" id="categories"></div>
+<div class="games-grid" id="allGamesGrid"></div>
 </section>
 
-<div class="section-head" id="catalog">
-  <h2 id="catalogTitle">كل الألعاب</h2>
-  <select id="sortSelect" onchange="renderAll()" style="width:auto;max-width:190px">
-    <option value="default">الترتيب الافتراضي</option>
-    <option value="name">الاسم</option>
-    <option value="priceLow">السعر: الأقل أولًا</option>
-    <option value="priceHigh">السعر: الأعلى أولًا</option>
-    <option value="year">الأحدث أولًا</option>
-  </select>
+<section class="section special-section online-section" id="onlineSection">
+<div class="section-heading">
+<div class="section-title-group">
+<div class="section-icon">🌐</div>
+<div>
+<h2>ألعاب <span>ONLINE</span></h2>
+<p class="section-subtitle">ألعاب تحتاج إلى اتصال بالإنترنت</p>
+</div>
+</div>
+</div>
+<div class="games-grid" id="onlineGrid"></div>
+</section>
+
+<section class="section special-section offline-section" id="offlineSection">
+<div class="section-heading">
+<div class="section-title-group">
+<div class="section-icon">🎯</div>
+<div>
+<h2>ألعاب <span>OFFLINE</span></h2>
+<p class="section-subtitle">استمتع بتجربة اللعب بدون اتصال بالإنترنت</p>
+</div>
+</div>
+</div>
+<div class="games-grid" id="offlineGrid"></div>
+</section>
+
+<section class="section special-section featured-section" id="featuredSection">
+<div class="section-heading">
+<div class="section-title-group">
+<div class="section-icon">⭐</div>
+<div>
+<h2>الألعاب <span>المميزة</span></h2>
+<p class="section-subtitle">اختيارات GAME.VEX المميزة</p>
+</div>
+</div>
+</div>
+<div class="games-grid" id="featuredGrid"></div>
+</section>
+
+<section class="section special-section offers-section" id="offersSection">
+<div class="section-heading">
+<div class="section-title-group">
+<div class="section-icon">🔥</div>
+<div>
+<h2>عروض <span>GAME.VEX</span></h2>
+<p class="section-subtitle">ألعاب بأسعار مخفضة</p>
+</div>
+</div>
+</div>
+<div class="games-grid" id="offersGrid"></div>
+</section>
+
+<section class="section special-section ps-section" id="psSection">
+<div class="section-heading">
+<div class="section-title-group">
+<div class="section-icon">🎮</div>
+<div>
+<h2>ألعاب <span>PlayStation</span></h2>
+<p class="section-subtitle">اختار نوع الحساب المناسب ليك</p>
+</div>
+</div>
+</div>
+<div class="games-grid" id="psGrid"></div>
+</section>
+
+</div>
+</main>
+
+<section class="details-page" id="detailsPage">
+<div class="details-background" id="detailsBackground"></div>
+<div class="details-overlay"></div>
+<div class="details-container">
+<button class="back-button" onclick="showHome()">← العودة للألعاب</button>
+<div class="details-content">
+<img id="detailsCover" class="details-cover" src="" alt="Game Cover">
+<div class="details-text">
+<h1 id="detailsTitle"></h1>
+<div class="details-tags" id="detailsTags"></div>
+<p class="details-description" id="detailsDescription"></p>
+
+<div class="ps-edition-box" id="psEditionBox">
+<h3>اختار نوع الحساب</h3>
+<div class="ps-edition-options" id="psEditionOptions"></div>
 </div>
 
-<section id="onlineSection">
-  <div class="section-banner online-banner">
-    <div><h2>🌐 ألعاب PC أونلاين</h2><p>اكتشف ألعاب الأونلاين المتاحة في المتجر.</p></div>
-    <span class="section-icon">🎮</span>
-  </div>
-  <main class="products" id="onlineProducts"></main>
+<div class="details-price" id="detailsPrice"></div>
+<div class="details-old-price" id="detailsOldPrice"></div>
+<div class="details-discount" id="detailsDiscount"></div>
+
+<div class="details-actions">
+<button class="details-add" id="detailsAddButton">أضف إلى السلة</button>
+<button class="details-back" onclick="showHome()">العودة للمتجر</button>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<section id="offlineSection">
-  <div class="section-banner offline-banner">
-    <div><h2>🖥️ ألعاب PC أوفلاين</h2><p>اكتشف ألعاب القصة والمغامرات.</p></div>
-    <span class="section-icon">🎯</span>
-  </div>
-  <main class="products" id="offlineProducts"></main>
-</section>
+<div class="cart-overlay" id="cartOverlay" onclick="overlayClose(event)">
+<aside class="cart-drawer">
+<div class="cart-header">
+<h2>سلة المشتريات</h2>
+<button class="close-cart" onclick="toggleCart(false)">×</button>
+</div>
 
-<section id="topSection">
-  <div class="section-banner feature-banner">
-    <div><h2>🏆 أفضل 10 ألعاب في GAME.VEX</h2><p>اختيارات المتجر لأفضل الألعاب.</p></div>
-    <span class="section-icon">⭐</span>
-  </div>
-  <main class="products" id="topProducts"></main>
-</section>
+<div class="cart-items" id="cartItems"></div>
 
-<section id="onlineOffersSection">
-  <div class="section-banner offer-banner">
-    <div><h2>🔥 عروض ألعاب الأونلاين</h2><p>اكتشف تخفيضات ألعاب الأونلاين.</p></div>
-    <span class="section-icon">🌐</span>
-  </div>
-  <main class="products" id="onlineOfferProducts"></main>
-</section>
+<div class="cart-total">
+<div class="total-line">
+<span>الإجمالي:</span>
+<strong id="cartTotal">0 EGP</strong>
+</div>
 
-<section id="offlineOffersSection">
-  <div class="section-banner offer-banner">
-    <div><h2>🔥 عروض ألعاب الأوفلاين</h2><p>اكتشف تخفيضات ألعاب الأوفلاين.</p></div>
-    <span class="section-icon">🖥️</span>
-  </div>
-  <main class="products" id="offlineOfferProducts"></main>
-</section>
+<input class="checkout-input" id="customerName" placeholder="الاسم بالكامل">
+<input class="checkout-input" id="customerPhone" type="tel" inputmode="numeric" maxlength="11" placeholder="رقم الهاتف">
+
+<div class="payment-box">
+<strong>وسيلة الدفع: Vodafone Cash</strong><br>
+رقم التحويل: <span class="payment-number">01033002607</span><br>
+<span style="color:var(--muted)"></span>
+</div>
+
+<button class="checkout-btn" id="checkoutButton" onclick="checkout()" disabled>إتمام الطلب عبر واتساب</button>
+<p class="checkout-hint" id="checkoutHint">اكتب اسمك ورقم هاتفك لتفعيل زر إتمام الطلب.</p>
+</div>
+</aside>
+</div>
 
 <footer>
-  <h3>GAME.VEX</h3>
-  <div>طريقة الدفع: <strong style="color:white">فودافون كاش</strong></div>
-  <div>رقم فودافون كاش: <strong style="color:white">01033002607</strong></div>
-  <div>بعد إتمام الطلب، ابعت تفاصيل الطلب على واتساب للتأكيد.</div>
-  <div class="social-links">
-    <a class="social-link" href="https://www.tiktok.com/@game.vex.store?_r=1&_t=ZS-9AuwkgQCX8U" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="images/tik.jpeg" alt="TikTok"></a>
-    <a class="social-link" href="https://www.instagram.com/game.vex?rpxt=MXR6MDVyZWg5YzNiMA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="images/ins.jpeg" alt="Instagram"></a>
-    <a class="social-link" href="https://discord.gg/k994VZtPQ" target="_blank" rel="noopener noreferrer" aria-label="Discord"><img src="images/des.jpeg" alt="Discord"></a>
-  </div>
-  <div>© GAME.VEX — Gaming Store</div>
+<div class="container">
+<div class="logo">GAME<span style="color:var(--purple)">.</span>VEX</div>
+<p>متجرك لأفضل ألعاب الكمبيوتر وPlayStation</p>
+
+<div class="social-section">
+<h2 class="social-title">تابعنا <span>علي</span></h2>
+<div class="socials">
+
+<a class="social-link" href="https://www.tiktok.com/@game.vex7?_r=1&_t=ZS-9BGPuSOEES5" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+<img src="images/tik.jpeg" alt="TikTok">
+</a>
+
+<a class="social-link" href="https://www.instagram.com/game.vex?exln=emJ2czl2ajdtdmV5" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<img src="images/ins.jpeg" alt="Instagram">
+</a>
+
+<a class="social-link" href="https://discord.gg/dpGAfmnqu" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+<img src="images/des.jpeg" alt="Discord">
+</a>
+
+</div>
+</div>
+
+<p>© 2026 GAME.VEX</p>
+</div>
 </footer>
 
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-
-<aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="سلة المشتريات">
-  <div class="drawer-head">
-    <h2>🛒 سلة المشتريات</h2>
-    <button class="btn secondary" onclick="closeCart()">✕</button>
-  </div>
-  <div id="cartItems"></div>
-  <div class="total">
-    <span>الإجمالي</span>
-    <span id="cartTotal">0 جنيه</span>
-  </div>
-  <div class="payment-info">فودافون كاش: 01033002607</div>
-  <label for="customerName">اسمك (إجباري)</label>
-  <input id="customerName" placeholder="اكتب اسمك" autocomplete="name" required>
-  <label for="customerPhone">رقم هاتفك (إجباري)</label>
-  <input id="customerPhone" type="tel" placeholder="اكتب رقم هاتفك" autocomplete="tel" inputmode="tel" required>
-  <button class="btn" style="width:100%;margin-top:14px" onclick="checkout()">اطلب على واتساب</button>
-  <button class="btn secondary" style="width:100%;margin-top:8px" onclick="clearCart()">إفراغ السلة</button>
-</aside>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <script src="1.js"></script>
+
 </body>
+
 </html>

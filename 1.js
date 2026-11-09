@@ -1,988 +1,1917 @@
-"use strict";
 
 const WHATSAPP_NUMBER = "201033002607";
-const PAYMENT_NUMBER = "01033002607";
+const VODAFONE_CASH_NUMBER = "01033002607";
+const DEFAULT_IMAGE = "images/default.jpg";
 
-const SOLD_OUT_PRODUCTS = [
-  // "Elden Ring|offline",
-  // "Elden Ring|online"
+
+
+
+const GAMES = [
+    {
+        name: "phantom blade zero",
+        year: 2026,
+        category: "أكشن",
+        appid: null,
+
+        cover: "images/phant.jpg",
+        background: "images/phant.jpg",
+
+        onlinePrice: null,
+        offlinePrice: 800,
+
+        onlineOffer: null,
+        offlineOffer: 650,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+
+    {
+        name: "Red Dead Redemption 2",
+        year: 2018,
+        category: "عالم مفتوح",
+        appid: 1174180,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: 300,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Elden Ring",
+        year: 2022,
+        category: "Souls",
+        appid: 1245620,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: 250,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Cyberpunk 2077",
+        year: 2020,
+        category: "RPG",
+        appid: 1091500,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Forza Horizon 5",
+        year: 2021,
+        category: "سباقات",
+        appid: 1551360,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: 300,
+        offlinePrice: 300,
+
+        onlineOffer: 250,
+        offlineOffer: 250,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Forza Horizon 6",
+        year: 2026,
+        category: "سباقات",
+        appid: null,
+
+        cover: "images/forza.jpg",
+        background: "images/forza.jpg",
+
+        onlinePrice: 500,
+        offlinePrice: 400,
+
+        onlineOffer: 400,
+        offlineOffer: 300,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+
+    {
+        name: "God of War",
+        year: 2022,
+        category: "أكشن",
+        appid: 1593500,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: 250,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Call of Duty: Modern Warfare 4",
+        year: 2026,
+        category: "تصويب",
+        appid: null,
+
+        cover: "images/cod4.jpg",
+        background: "images/cod4.jpg",
+
+        onlinePrice: 3000,
+        offlinePrice: 450,
+
+        onlineOffer: 2500,
+        offlineOffer: 350,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+
+    {
+        name: "Resident Evil 4",
+        year: 2023,
+        category: "رعب",
+        appid: 2050650,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Spider-Man Remastered",
+        year: 2022,
+        category: "أكشن",
+        appid: 1817070,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    
+
+    {
+        name: "Hogwarts Legacy",
+        year: 2023,
+        category: "RPG",
+        appid: 990080,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Black Myth: Wukong",
+        year: 2024,
+        category: "أكشن",
+        appid: 2358720,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 400,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+
+    {
+        name: "Grand Theft Auto V",
+        year: 2015,
+        category: "عالم مفتوح",
+        appid: 271590,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: 300,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "The Witcher 3",
+        year: 2015,
+        category: "RPG",
+        appid: 292030,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Sekiro: Shadows Die Twice",
+        year: 2019,
+        category: "Souls",
+        appid: 814380,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+
+    {
+        name: "Resident Evil Village",
+        year: 2021,
+        category: "رعب",
+        appid: 1196590,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "The Last of Us Part I",
+        year: 2023,
+        category: "قصة",
+        appid: 1888930,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Lies of P",
+        year: 2023,
+        category: "Souls",
+        appid: 1627720,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Dying Light 2",
+        year: 2022,
+        category: "عالم مفتوح",
+        appid: 534380,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: 300,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Assassin's Creed Valhalla",
+        year: 2020,
+        category: "عالم مفتوح",
+        appid: 2208920,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "It Takes Two",
+        year: 2021,
+        category: "مغامرات",
+        appid: 1426210,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: 300,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Marvel's Spider-Man: Miles Morales",
+        year: 2022,
+        category: "أكشن",
+        appid: 1817190,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Horizon Forbidden West",
+        year: 2024,
+        category: "عالم مفتوح",
+        appid: 2420110,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 350,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Ghost of Tsushima",
+        year: 2024,
+        category: "أكشن",
+        appid: 2215430,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 350,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Silent Hill 2",
+        year: 2024,
+        category: "رعب",
+        appid: 2124490,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 350,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Helldivers 2",
+        year: 2024,
+        category: "تصويب",
+        appid: 553850,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: 350,
+        offlinePrice: null,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    
+
+    {
+        name: "Star Wars Jedi: Survivor",
+        year: 2023,
+        category: "أكشن",
+        appid: 1774580,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Lords of the Fallen",
+        year: 2023,
+        category: "Souls",
+        appid: 1501750,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "The Callisto Protocol",
+        year: 2022,
+        category: "رعب",
+        appid: 1544020,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    
+
+    {
+        name: "DOOM Eternal",
+        year: 2020,
+        category: "تصويب",
+        appid: 782330,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Horizon Zero Dawn",
+        year: 2020,
+        category: "عالم مفتوح",
+        appid: 1151640,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Resident Evil 3",
+        year: 2020,
+        category: "رعب",
+        appid: 952060,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Stray",
+        year: 2022,
+        category: "مغامرات",
+        appid: 1332010,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 250,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "A Plague Tale: Requiem",
+        year: 2022,
+        category: "قصة",
+        appid: 1182900,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: false,
+        isNew: false
+    },
+
+    {
+        name: "Baldur's Gate 3",
+        year: 2023,
+        category: "RPG",
+        appid: 1086940,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 400,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Indiana Jones and the Great Circle",
+        year: 2024,
+        category: "مغامرات",
+        appid: 2677660,
+
+        cover: "",
+        background: "",
+
+        onlinePrice: null,
+        offlinePrice: 350,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: false
+    }
+
 ];
 
-const CUSTOM_IMAGES = {
-  "Phantom Blade Zero":"images/phant.jpg",
-  "Call of Duty: Modern Warfare 4":"images/cod4.jpg",
-  "Forza Horizon 6":"images/forza.jpg",
-  "Elden Ring":"images/elden-ring.jpg",
-  "Bloodborne":"images/bloodborne.jpg",
-  "EA SPORTS FC 27":"images/fc27.webp"
+
+
+
+const PS_GAMES = [
+    {
+        name: "GTA 6",
+        year: 2026,
+        category: "عالم مفتوح",
+
+        cover: "images/gta6.jpg",
+        background: "images/gta6.jpg",
+
+        primaryPrice: 3500,
+        primaryOffer: null,
+        primarySoldOut: false,
+
+        secondaryPrice: 2800,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+{
+        name: "phantom blade zero",
+        year: 2026,
+        category: "أكشن",
+
+        cover: "images/phant.jpg",
+        background: "images/phant.jpg",
+
+        primaryPrice: 2400,
+        primaryOffer: null,
+        primarySoldOut: false,
+
+        secondaryPrice: 1800,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+
+    {
+        name: "God of War Ragnarök",
+        year: 2024,
+        category: "أكشن",
+
+        cover: "images/god.jpg",
+        background: "images/god.jpg",
+
+        primaryPrice: 800,
+        primaryOffer: null,
+        primarySoldOut: false,
+
+        secondaryPrice: 600,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+    {
+        name: "Marvel's Spider-Man 2",
+        year: 2025,
+        category: "أكشن",
+
+        cover: "images/spider.jpg",
+        background: "images/spider.jpg",
+
+        primaryPrice: 950,
+        primaryOffer: null,
+        primarySoldOut: false,
+
+        secondaryPrice: 750,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        featured: true,
+        isNew: false
+    },
+
+
+
+    {
+        name: "Ghost of yotei",
+        year: 2025,
+        category: "أكشن",
+
+        cover: "images/ghost.jpg",
+        background: "images/ghost.jpg",
+
+        primaryPrice: 1200,
+        primaryOffer: null,
+        primarySoldOut: false,
+
+        secondaryPrice: 950,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        featured: true,
+        isNew: false
+    }
+
+];
+
+
+
+
+const DESCRIPTIONS = {
+    "red dead redemption 2": "عِش مغامرة ملحمية في عالم مفتوح واسع مليء بالتفاصيل والشخصيات والمهام.",
+    "elden ring": "ادخل عالمًا خياليًا واسعًا مليئًا بالأسرار والتحديات.",
+    "cyberpunk 2077": "انطلق إلى مدينة مستقبلية ضخمة مليئة بالتكنولوجيا والمهام والاختيارات.",
+    "forza horizon 5": "استمتع بتجربة سباقات مفتوحة في عالم مستوحى من المكسيك.",
+    "god of war": "خض مغامرة أكشن ملحمية تجمع بين القتال والاستكشاف والقصة.",
+    "bloodborne": "اكتشف عالمًا مظلمًا وغامضًا يعتمد على القتال والتحديات.",
+    "black myth: wukong": "انطلق في مغامرة أكشن مستوحاة من الأساطير الصينية.",
+    "hogwarts legacy": "استكشف عالم السحر في تجربة عالم مفتوح.",
+    "resident evil 4": "استعد لمغامرة مليئة بالتشويق والمواجهات.",
+    "spider-man remastered": "انطلق في شوارع المدينة واستمتع بتجربة أكشن ومغامرات.",
+    "the last of us part i": "خض تجربة قصصية مليئة بالأحداث والشخصيات.",
+    "sekiro: shadows die twice": "اختبر مهاراتك في القتال والتوقيت الدقيق.",
+    "lies of p": "ادخل عالمًا غامضًا مستوحى من قصة بينوكيو.",
+    "assassin's creed valhalla": "عِش مغامرة الفايكنج واستكشف عالمًا مفتوحًا.",
+    "it takes two": "خض مغامرة تعاونية مليئة بالتحديات.",
+    "marvel's spider-man: miles morales": "استمتع بمغامرة جديدة في عالم سبايدرمان.",
+    "horizon forbidden west": "استكشف عالمًا واسعًا مليئًا بالمخلوقات الآلية والأسرار.",
+    "ghost of tsushima": "عِش مغامرة ساموراي في عالم مفتوح.",
+    "silent hill 2": "استكشف تجربة رعب نفسي مليئة بالغموض.",
+    "helldivers 2": "شارك في مواجهات تعاونية مليئة بالتحديات.",
+    " wake 2": "ادخل تجربة قصصية تجمع بين الغموض والرعب النفسي.",
+    "star wars jedi: survivor": "خض مغامرة أكشن في عالم Star Wars.",
+    "lords of the fallen": "استكشف عالمًا خياليًا مظلمًا مليئًا بالتحديات.",
+    "the callisto protocol": "خض تجربة رعب وبقاء في عالم خيال علمي.",
+    "palworld": "استكشف عالمًا مفتوحًا واكتشف مناطق جديدة.",
+    "doom eternal": "خض تجربة تصويب مليئة بالتحديات.",
+    "stray": "استكشف مدينة غامضة واكتشف أسرارها.",
+    "baldur's gate 3": "ادخل مغامرة تقمص أدوار واسعة.",
+    "god of war ragnarök": "استكمل رحلة كريتوس وأتريوس.",
+    "marvel's spider-man 2": "استمتع بمغامرة سبايدرمان في مدينة نيويورك.",
+    "the last of us part ii remastered": "تابع أحداث قصة درامية في عالم مليء بالتحديات.",
+    "resident evil 3": "عِش تجربة رعب وبقاء في مدينة مليئة بالمخاطر."
 };
 
-
-const GAME_PRICES = {
-
-  "Call of Duty: Modern Warfare 4":{
-    offlinePrice:300,onlinePrice:3500,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Phantom Blade Zero":{
-    offlinePrice:400,onlinePrice:800,
-    offlineOffer:null,onlineOffer:null
-  },
-  
-
-  "EA SPORTS FC 26":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "EA SPORTS FC 27":{
-    offlinePrice:300,onlinePrice:2000,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Forza Horizon 5":{
-    offlinePrice:300,onlinePrice:400,
-    offlineOffer:250,onlineOffer:null
-  },
-  "Forza Horizon 6":{
-    offlinePrice:300,onlinePrice:400,
-    offlineOffer:null,onlineOffer:null
-  },
-  
-  "F1 24":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Need for Speed Unbound":{
-    offlinePrice:300,onlinePrice:500,
-    offlineOffer:null,onlineOffer:null
-  },
-  "The Crew Motorfest":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Elden Ring":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:250,onlineOffer:null
-  },
-  "Elden Ring: Shadow of the Erdtree":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Sekiro: Shadows Die Twice":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Lies of P":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Black Myth: Wukong":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Lords of the Fallen":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Nioh 2":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Bloodborne":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Remnant II":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Wo Long: Fallen Dynasty":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "God of War Ragnarök":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "God of War":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:250,onlineOffer:null
-  },
-  "Marvel's Spider-Man Remastered":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Marvel's Spider-Man: Miles Morales":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Marvel's Spider-Man 2":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Ghost of Tsushima DIRECTOR'S CUT":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Horizon Forbidden West Complete Edition":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Horizon Zero Dawn Remastered":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Red Dead Redemption 2":{
-    offlinePrice:300,onlinePrice:800,
-    offlineOffer:250,onlineOffer:null
-  },
-  "Cyberpunk 2077":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:250,onlineOffer:null
-  },
-  "Grand Theft Auto V Enhanced":{
-    offlinePrice:300,onlinePrice:800,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Mafia: Definitive Edition":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Assassin's Creed Mirage":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Assassin's Creed Valhalla":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Assassin's Creed Shadows":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Far Cry 6":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Dying Light 2 Stay Human":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Resident Evil 2":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Resident Evil 3":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Resident Evil Village":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Resident Evil 4":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Silent Hill 2":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Alan Wake 2":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Dead Space":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "The Callisto Protocol":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "The Outlast Trials":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Sons of the Forest":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "The Last of Us Part I":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "The Last of Us Part II Remastered":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "UNCHARTED: Legacy of Thieves Collection":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Star Wars Jedi: Survivor":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Prince of Persia: The Lost Crown":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Sifu":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Kena: Bridge of Spirits":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Stray":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Devil May Cry 5":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Armored Core VI: Fires of Rubicon":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Final Fantasy XVI":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Final Fantasy VII Remake Intergrade":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Monster Hunter Wilds":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Persona 3 Reload":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Metaphor: ReFantazio":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Baldur's Gate 3":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Dragon's Dogma 2":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Hogwarts Legacy":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "DOOM Eternal":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "DOOM: The Dark Ages":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Call of Duty: Modern Warfare II":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Call of Duty: Modern Warfare III":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Call of Duty: Black Ops 6":{
-    offlinePrice:null,onlinePrice:300,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Call of Duty: Black Ops 7":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Battlefield 2042":{
-    offlinePrice:null,onlinePrice:300,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Battlefield 6":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "HELLDIVERS 2":{
-    offlinePrice:null,onlinePrice:300,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Warhammer 40,000: Space Marine 2":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  
-  "S.T.A.L.K.E.R. 2: Heart of Chornobyl":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Palworld":{
-    offlinePrice:null,onlinePrice:300,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Hades II":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Hades":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Hollow Knight: Silksong":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "It Takes Two":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Split Fiction":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "TEKKEN 8":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Street Fighter 6":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Mortal Kombat 1":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "WWE 2K25":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "NBA 2K25":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Starfield":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "Kingdom Come: Deliverance II":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  },
-  "The Witcher 3: Wild Hunt":{
-    offlinePrice:300,onlinePrice:null,
-    offlineOffer:null,onlineOffer:null
-  }
-
-};
-
-const NEW_GAMES = [
-  "Call of Duty: Modern Warfare 4",
-  "EA SPORTS FC 27",
-  "Forza Horizon 6",
-  "Battlefield 6",
-  "Call of Duty: Black Ops 7",
-  "Hades II",
-  "Split Fiction",
-  "Phantom Blade Zero"
-];
-
-const FEATURED_GAMES = [
-  "Phantom Blade Zero",
-  "Red Dead Redemption 2",
-  "God of War Ragnarök",
-  "Elden Ring",
-  "Cyberpunk 2077",
-  "Forza Horizon 5",
-  "Marvel's Spider-Man Remastered",
-  "Black Myth: Wukong",
-  "The Witcher 3: Wild Hunt",
-  "Ghost of Tsushima DIRECTOR'S CUT",
-  "Baldur's Gate 3"
-];
-
-const raw = [
-["Call of Duty: Modern Warfare 4",2026,"shooter",0],
-["Phantom Blade Zero",2026,"action",0],
-["EA SPORTS FC 25",2024,"sports",2669320],
-["EA SPORTS FC 26",2025,"sports",0],
-["EA SPORTS FC 27",2026,"sports",0],
-["Forza Horizon 5",2021,"racing",1551360],
-["Forza Horizon 6",2026,"racing",0],
-["Forza Motorsport",2023,"racing",2440510],
-["F1 25",2025,"racing",0],
-["F1 24",2024,"racing",2488620],
-["Need for Speed Unbound",2022,"racing",1846380],
-["The Crew Motorfest",2023,"racing",2698940],
-["Elden Ring",2022,"souls",1245620],
-["Elden Ring: Shadow of the Erdtree",2024,"souls",1245620],
-["Sekiro: Shadows Die Twice",2019,"souls",814380],
-["Lies of P",2023,"souls",1627720],
-["Black Myth: Wukong",2024,"souls",2358720],
-["Lords of the Fallen",2023,"souls",1501750],
-["Nioh 2",2021,"souls",1325200],
-["Bloodborne",2015,"souls",0],
-["Remnant II",2023,"souls",1282100],
-["Wo Long: Fallen Dynasty",2023,"souls",1448440],
-["God of War Ragnarök",2024,"story",2322010],
-["God of War",2018,"story",1593500],
-["Marvel's Spider-Man Remastered",2022,"story",1817070],
-["Marvel's Spider-Man: Miles Morales",2022,"story",1817190],
-["Marvel's Spider-Man 2",2025,"story",2651280],
-["Ghost of Tsushima DIRECTOR'S CUT",2024,"story",2215430],
-["Horizon Forbidden West Complete Edition",2024,"story",2420110],
-["Horizon Zero Dawn Remastered",2024,"story",2561580],
-["Red Dead Redemption 2",2019,"story",1174180],
-["Cyberpunk 2077",2020,"story",1091500],
-["Grand Theft Auto V Enhanced",2025,"open",3240220],
-["Mafia: Definitive Edition",2020,"story",1030840],
-["Assassin's Creed Mirage",2023,"open",3035570],
-["Assassin's Creed Valhalla",2020,"open",2208920],
-["Assassin's Creed Shadows",2025,"open",0],
-["Far Cry 6",2021,"open",2369390],
-["Dying Light 2 Stay Human",2022,"horror",534380],
-["Resident Evil 2",2019,"horror",883710],
-["Resident Evil 3",2020,"horror",952060],
-["Resident Evil Village",2021,"horror",1196590],
-["Resident Evil 4",2023,"horror",2050650],
-["Silent Hill 2",2024,"horror",2124490],
-["Alan Wake 2",2023,"horror",0],
-["Dead Space",2023,"horror",1693980],
-["The Callisto Protocol",2022,"horror",1544020],
-["The Outlast Trials",2024,"horror",1304930],
-["Sons of the Forest",2024,"horror",1326470],
-["The Last of Us Part I",2023,"story",1888930],
-["The Last of Us Part II Remastered",2025,"story",2531310],
-["UNCHARTED: Legacy of Thieves Collection",2022,"story",1659420],
-["Star Wars Jedi: Survivor",2023,"story",1774580],
-["Prince of Persia: The Lost Crown",2024,"action",2751000],
-["Sifu",2022,"action",2138710],
-["Kena: Bridge of Spirits",2021,"action",1954200],
-["Stray",2022,"action",1332010],
-["Devil May Cry 5",2019,"action",601150],
-["Armored Core VI: Fires of Rubicon",2023,"action",1888160],
-["Final Fantasy XVI",2024,"rpg",2515020],
-["Final Fantasy VII Remake Intergrade",2021,"rpg",1462040],
-["Monster Hunter Wilds",2025,"rpg",2246340],
-["Persona 3 Reload",2024,"rpg",2161700],
-["Metaphor: ReFantazio",2024,"rpg",2679460],
-["Baldur's Gate 3",2023,"rpg",1086940],
-["Dragon's Dogma 2",2024,"rpg",2054970],
-["Hogwarts Legacy",2023,"open",990080],
-["DOOM Eternal",2020,"shooter",782330],
-["DOOM: The Dark Ages",2025,"shooter",3017860],
-["Call of Duty: Modern Warfare II",2022,"shooter",1962660],
-["Call of Duty: Modern Warfare III",2023,"shooter",2519060],
-["Call of Duty: Black Ops 6",2024,"shooter",1938090],
-["Call of Duty: Black Ops 7",2025,"shooter",0],
-["Battlefield 2042",2021,"shooter",1517290],
-["Battlefield 6",2025,"shooter",0],
-["HELLDIVERS 2",2024,"shooter",553850],
-["Warhammer 40,000: Space Marine 2",2024,"action",2183900],
-["THE FINALS",2023,"shooter",2073850],
-["S.T.A.L.K.E.R. 2: Heart of Chornobyl",2024,"shooter",1643320],
-["Palworld",2024,"open",1623730],
-["Hades II",2025,"action",1145350],
-["Hades",2020,"action",1145360],
-["Hollow Knight: Silksong",2025,"action",1030300],
-["It Takes Two",2021,"action",1426210],
-["Split Fiction",2025,"action",2001120],
-["TEKKEN 8",2024,"sports",1778820],
-["Street Fighter 6",2023,"sports",1364780],
-["Mortal Kombat 1",2023,"sports",1971870],
-["WWE 2K25",2025,"sports",0],
-["NBA 2K25",2024,"sports",2878980],
-["Starfield",2023,"rpg",1716740],
-["Kingdom Come: Deliverance II",2025,"rpg",1771300],
-["The Witcher 3: Wild Hunt",2015,"rpg",292030]
-];
-
-const categoryInfo=[
-["all","🎮","كل الألعاب"],
-["story","📖","ألعاب قصة"],
-["souls","⚔️","سولز"],
-["racing","🏎️","سباق"],
-["horror","👻","رعب"],
-["action","💥","أكشن"],
-["shooter","🎯","شوتر"],
-["rpg","🧙","RPG"],
-["open","🌍","عالم مفتوح"],
-["sports","⚽","رياضة"]
-];
-
-const baseGames=raw.map((g,i)=>({
- baseId:i,
- name:g[0],
- year:g[1],
- cat:g[2],
- appid:Number(g[3])||0,
- image:CUSTOM_IMAGES[g[0]]||""
-})).filter((g,i,arr)=>arr.findIndex(x=>x.name===g.name)===i);
-
-function makeGames(){
- const result=[];
-
- baseGames.forEach(g=>{
-  const prices=GAME_PRICES[g.name];
-
-  if(!prices)return;
-
-  ["offline","online"].forEach(mode=>{
-   const price=prices[mode+"Price"];
-   const offer=prices[mode+"Offer"];
-
-   if(price===null||price===undefined||price===""||
-      !Number.isFinite(Number(price))||Number(price)<=0)return;
-
-   const validOffer=
-    offer!==null&&offer!==undefined&&offer!==""&&
-    Number.isFinite(Number(offer))&&
-    Number(offer)>0&&Number(offer)<Number(price);
-
-   result.push({
-    ...g,
-    id:g.baseId+"_"+mode,
-    mode,
-    price:Number(price),
-    offer:validOffer?Number(offer):null
-   });
-  });
- });
-
- return result;
+function getDescription(game) {
+    return DESCRIPTIONS[game.name.toLowerCase()] ||
+        `استمتع بتجربة ${game.name} في مغامرة تجمع بين أسلوب اللعب المميز والتحديات المختلفة.`;
 }
 
-let games=makeGames();
 
-let activeCategory="all";
-let cart=readJSON("gamevex_cart",{});
 
-function readJSON(key,fallback){
- try{
-  const v=localStorage.getItem(key);
-  return v===null?fallback:JSON.parse(v);
- }catch{return fallback}
+
+let activeCategory = "الكل";
+let currentGame = null;
+let selectedPSEdition = "primary";
+let cart = [];
+
+try {
+    const saved = JSON.parse(localStorage.getItem("gamevex_cart") || "[]");
+
+    if (Array.isArray(saved)) {
+        cart = saved.filter(item =>
+            item &&
+            item.id &&
+            item.name &&
+            Number(item.price) >= 0
+        );
+    }
+} catch (error) {
+    cart = [];
 }
 
-function saveCart(){
- try{
-  localStorage.setItem("gamevex_cart",JSON.stringify(cart));
- }catch{}
+function escapeText(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
-function escapeHTML(s){
- return String(s).replace(/[&<>"']/g,c=>({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
+function makeId(name, mode) {
+    return encodeURIComponent(name + "|" + mode).replace(/'/g, "%27");
 }
 
-function money(n){
- return Number(n||0).toLocaleString("en-US")+" جنيه";
+function getDiscount(oldPrice, newPrice) {
+    if (!oldPrice || !newPrice || newPrice >= oldPrice) return 0;
+
+    return Math.round(((oldPrice - newPrice) / oldPrice) * 100);
 }
 
-function goTo(id){
- document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
+
+
+
+function getSteamCover(game) {
+    if (!game.appid || Number(game.appid) <= 0) {
+        return DEFAULT_IMAGE;
+    }
+
+    return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.appid}/library_600x900.jpg`;
 }
 
-function toast(msg){
- const el=document.getElementById("toast");
- el.textContent=msg;
- el.classList.add("show");
- clearTimeout(toast.timer);
- toast.timer=setTimeout(()=>el.classList.remove("show"),2400);
+function getSteamBackground(game) {
+    if (!game.appid || Number(game.appid) <= 0) {
+        return getImage(game);
+    }
+
+    return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.appid}/library_hero.jpg`;
 }
 
-function isSoldOut(g){
- return SOLD_OUT_PRODUCTS.includes(g.name+"|"+g.mode);
+function getImage(game) {
+    if (game.cover && game.cover.trim() !== "") {
+        return game.cover;
+    }
+
+    return getSteamCover(game);
 }
 
-function getPriceForCard(g){
- return g.offer!==null?g.offer:g.price;
+function getBackground(game) {
+    if (game.background && game.background.trim() !== "") {
+        return game.background;
+    }
+
+    if (game.platform === "PS") {
+        return getImage(game);
+    }
+
+    return getSteamBackground(game);
 }
 
-function coverURL(g){
- if(!g.appid)return "";
- return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${g.appid}/library_600x900.jpg`;
+function getGameId(game, mode) {
+    return game.name + "|" + mode;
 }
 
-function coverHTML(g){
- const customURL=g.image||"";
- const steamURL=coverURL(g);
- const initialURL=customURL||steamURL;
 
- if(!initialURL){
-  return `<div class="cover-fallback">${escapeHTML(g.name)}</div>`;
- }
 
- return `<img
- src="${escapeHTML(initialURL)}"
- alt="${escapeHTML(g.name)}"
- loading="lazy"
- data-fallback="${escapeHTML(customURL?steamURL:"")}"
- onerror="handleCoverError(this)">`;
+
+function getPSEdition(game, edition) {
+    const primary = edition === "primary";
+
+    const original = primary
+        ? game.primaryPrice
+        : game.secondaryPrice;
+
+    const offer = primary
+        ? game.primaryOffer
+        : game.secondaryOffer;
+
+    const sold = primary
+        ? game.primarySoldOut
+        : game.secondarySoldOut;
+
+    return {
+        ...game,
+        platform: "PS",
+        mode: edition,
+        edition: edition,
+        price: offer !== null && offer !== undefined ? offer : original,
+        oldPrice: offer !== null && offer !== undefined ? original : null,
+        soldOut: !!sold
+    };
 }
 
-function handleCoverError(img){
- const fallback=img.dataset.fallback||"";
+function getGames() {
+    const result = [];
 
- if(fallback&&!img.dataset.fallbackTried){
-  img.dataset.fallbackTried="1";
-  img.src=fallback;
-  return;
- }
+    GAMES.forEach(game => {
 
- const div=document.createElement("div");
- div.className="cover-fallback";
- div.textContent=img.alt||"صورة اللعبة";
- img.replaceWith(div);
+        if (game.onlinePrice !== null) {
+            result.push({
+                ...game,
+                platform: "PC",
+                mode: "online",
+                price: game.onlineOffer ?? game.onlinePrice,
+                oldPrice: game.onlineOffer !== null ? game.onlinePrice : null,
+                soldOut: !!game.onlineSoldOut
+            });
+        }
+
+        if (game.offlinePrice !== null) {
+            result.push({
+                ...game,
+                platform: "PC",
+                mode: "offline",
+                price: game.offlineOffer ?? game.offlinePrice,
+                oldPrice: game.offlineOffer !== null ? game.offlinePrice : null,
+                soldOut: !!game.offlineSoldOut
+            });
+        }
+
+    });
+
+    return result;
 }
 
-function renderCategories(){
- document.getElementById("categories").innerHTML=categoryInfo.map(c=>`
- <button class="category ${activeCategory===c[0]?"active":""}" onclick="setCategory('${c[0]}')">
- <span class="emoji">${c[1]}</span>${c[2]}
- </button>
- `).join("");
+function modeName(mode) {
+    if (mode === "online") return "Online";
+    if (mode === "offline") return "Offline";
+    if (mode === "primary") return "Primary Account";
+    if (mode === "secondary") return "Secondary Account";
+
+    return "PlayStation";
 }
 
-function setCategory(cat){
- activeCategory=cat;
- renderCategories();
 
- document.getElementById("catalogTitle").textContent=
- categoryInfo.find(c=>c[0]===cat)?.[2]||"كل الألعاب";
 
- renderAll();
- goTo("catalog");
+
+function psCardPrices(game) {
+    const primary = getPSEdition(game, "primary");
+    const secondary = getPSEdition(game, "secondary");
+
+    function priceHTML(item, label) {
+        const discount = item.oldPrice
+            ? getDiscount(item.oldPrice, item.price)
+            : 0;
+
+        return `
+            <div class="ps-card-price ${item.soldOut ? "unavailable" : ""}">
+                ${label}
+
+                <strong>
+                    ${item.soldOut ? "نفذت الكمية" : item.price + " EGP"}
+                </strong>
+
+                ${item.oldPrice
+                    ? `<em><del>${item.oldPrice} EGP</del> - خصم ${discount}%</em>`
+                    : ""
+                }
+            </div>
+        `;
+    }
+
+    return `
+        <div class="ps-card-prices">
+            ${priceHTML(primary, "PRIMARY")}
+            ${priceHTML(secondary, "SECONDARY")}
+        </div>
+    `;
 }
 
-function getQuery(){
- return document.getElementById("searchInput").value.toLowerCase().trim();
+function gameCard(game) {
+    const image = getImage(game);
+    const isPS = game.platform === "PS";
+    const id = makeId(game.name, game.mode);
+
+    let badges = "";
+    let priceHTML = "";
+    let addButton = "";
+
+    if (isPS) {
+
+        const primary = getPSEdition(game, "primary");
+        const secondary = getPSEdition(game, "secondary");
+
+        const hasDiscount = primary.oldPrice || secondary.oldPrice;
+        const bothSold = primary.soldOut && secondary.soldOut;
+
+        if (bothSold) {
+            badges += `<span class="game-label sold">نفذت الكمية</span>`;
+        }
+
+        badges += `<span class="game-label ps-label">PLAYSTATION</span>`;
+
+        if (game.isNew) {
+            badges += `<span class="game-label new">جديد</span>`;
+        }
+
+        if (hasDiscount) {
+            badges += `<span class="game-label discount">عرض خاص</span>`;
+        }
+
+        priceHTML = psCardPrices(game);
+
+        addButton = `
+            <button class="add-btn" onclick="openDetails('${id}')">
+                اختار الحساب
+            </button>
+        `;
+
+    } else {
+
+        const discount = game.oldPrice
+            ? getDiscount(game.oldPrice, game.price)
+            : 0;
+
+        if (game.soldOut) {
+            badges += `<span class="game-label sold">نفذت الكمية</span>`;
+        }
+
+        badges += game.mode === "online"
+            ? `<span class="game-label online">ONLINE</span>`
+            : `<span class="game-label offline">OFFLINE</span>`;
+
+        if (game.isNew) {
+            badges += `<span class="game-label new">جديد</span>`;
+        }
+
+        if (discount) {
+            badges += `<span class="game-label discount">خصم ${discount}%</span>`;
+        }
+
+        priceHTML = `
+            <div class="game-price">
+                <span class="price">${game.price} EGP</span>
+
+                ${game.oldPrice
+                    ? `<span class="old-price">${game.oldPrice} EGP</span>`
+                    : ""
+                }
+            </div>
+
+            ${discount
+                ? `<div class="discount-info">وفر ${discount}% على اللعبة</div>`
+                : ""
+            }
+        `;
+
+        addButton = `
+            <button class="add-btn" ${game.soldOut ? "disabled" : ""}
+                onclick="addToCart('${id}')">
+
+                ${game.soldOut ? "نفذت الكمية" : "أضف للسلة"}
+
+            </button>
+        `;
+    }
+
+    return `
+        <article class="game-card">
+
+            <div class="game-cover" onclick="openDetails('${id}')">
+
+                <img
+                    src="${escapeText(image)}"
+                    alt="${escapeText(game.name)}"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'"
+                >
+
+                <div class="game-badges">
+                    ${badges}
+                </div>
+
+            </div>
+
+            <div class="game-info">
+
+                <h3>${escapeText(game.name)}</h3>
+
+                <div class="game-meta">
+                    ${game.year || ""} • ${isPS ? "PlayStation" : modeName(game.mode)}
+                </div>
+
+                ${priceHTML}
+
+                <div class="card-actions">
+
+                    <button class="details-btn" onclick="openDetails('${id}')">
+                        التفاصيل
+                    </button>
+
+                    ${addButton}
+
+                </div>
+
+            </div>
+
+        </article>
+    `;
 }
 
-function getSort(){
- return document.getElementById("sortSelect").value;
+function renderGrid(elementId, games, emptyText) {
+    const element = document.getElementById(elementId);
+
+    if (!games.length) {
+        element.innerHTML = `
+            <div class="empty-message">
+                ${emptyText || "لا توجد ألعاب هنا حاليًا"}
+            </div>
+        `;
+
+        return;
+    }
+
+    element.innerHTML = games.map(gameCard).join("");
 }
 
-function filterGames(list){
- const query=getQuery();
- const sort=getSort();
 
- let result=list.filter(g=>
-  (activeCategory==="all"||g.cat===activeCategory)&&
-  g.name.toLowerCase().includes(query)
- );
 
- if(sort==="name")result.sort((a,b)=>a.name.localeCompare(b.name));
- if(sort==="priceLow")result.sort((a,b)=>getPriceForCard(a)-getPriceForCard(b));
- if(sort==="priceHigh")result.sort((a,b)=>getPriceForCard(b)-getPriceForCard(a));
- if(sort==="year")result.sort((a,b)=>b.year-a.year);
 
- return result;
+function renderCategories() {
+    const categories = [
+        "الكل",
+        ...new Set(
+            [...GAMES, ...PS_GAMES]
+                .map(game => game.category)
+                .filter(Boolean)
+        )
+    ];
+
+    document.getElementById("categories").innerHTML =
+        categories.map(category => `
+            <button
+                class="category-btn ${activeCategory === category ? "active" : ""}"
+                onclick="selectCategory('${escapeText(category)}')"
+            >
+                ${escapeText(category)}
+            </button>
+        `).join("");
 }
 
-function gameCard(g,options={}){
- const soldOut=isSoldOut(g);
- const displayPrice=getPriceForCard(g);
- const hasDiscount=g.offer!==null;
- const isNew=NEW_GAMES.includes(g.name);
-
- const modeLabel=g.mode==="online"?"أونلاين":"أوفلاين";
-
- return `
- <article class="card ${soldOut?"sold-out":""}">
- <div class="cover">
- ${coverHTML(g)}
-
- ${soldOut?'<div class="sold-out-overlay"><span>لقد نفذت الكمية</span></div>':""}
-
- ${isNew?'<span class="badge badge-new">جديد</span>':""}
-
- <span class="badge ${g.mode==="online"?"badge-online":"badge-offline"}"
- style="${isNew?"top:43px":""}">
- ${modeLabel}
- </span>
-
- ${hasDiscount?'<span class="badge badge-offer">عرض</span>':""}
-
- ${options.featured?'<span class="badge badge-feature">TOP 10</span>':""}
- </div>
-
- <div class="card-body">
- <h3>${escapeHTML(g.name)}</h3>
-
- <div class="meta">${g.year} · ${categoryInfo.find(c=>c[0]===g.cat)?.[2]||g.cat}</div>
- <div class="meta">${modeLabel}</div>
-
- ${soldOut?'<div class="meta sold-out-label">لقد نفذت الكمية</div>':""}
-
- <div class="price ${hasDiscount?"discount-price":""}">
- ${money(displayPrice)}
- ${hasDiscount?`<span class="old-price">${money(g.price)}</span>`:""}
- </div>
-
- <div class="card-actions">
- <button class="btn" ${soldOut?"disabled":""}
- onclick="addToCart('${g.id}')">
- ${soldOut?"نفذت الكمية":"+ أضف للسلة"}
- </button>
- </div>
- </div>
- </article>`;
+function selectCategory(category) {
+    activeCategory = category;
+    renderAll();
 }
 
-function renderSection(id,list,options={}){
- const el=document.getElementById(id);
+function renderAll() {
+    const search = document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
 
- if(!list.length){
-  el.innerHTML='<div class="empty">مفيش ألعاب هنا مطابقة للبحث أو التصنيف الحالي.</div>';
-  return;
- }
+    const matches = game => (
+        game.name.toLowerCase().includes(search) ||
+        String(game.category || "").toLowerCase().includes(search)
+    ) && (
+        activeCategory === "الكل" ||
+        game.category === activeCategory
+    );
 
- el.innerHTML=list.map(g=>gameCard(g,options)).join("");
+    const pcGames = getGames().filter(matches);
+    const psGames = PS_GAMES.filter(matches);
+
+    const allGames = [
+        ...pcGames,
+        ...psGames.map(game => ({
+            ...game,
+            platform: "PS",
+            mode: "ps"
+        }))
+    ];
+
+    renderCategories();
+
+    renderGrid("allGamesGrid", allGames);
+
+    renderGrid(
+        "onlineGrid",
+        pcGames.filter(game => game.mode === "online")
+    );
+
+    renderGrid(
+        "offlineGrid",
+        pcGames.filter(game => game.mode === "offline")
+    );
+
+    const featuredPC = pcGames.filter(game => game.featured);
+
+    const featuredPS = psGames
+        .filter(game => game.featured)
+        .map(game => ({
+            ...game,
+            platform: "PS",
+            mode: "ps"
+        }));
+
+    renderGrid(
+        "featuredGrid",
+        [...featuredPC, ...featuredPS].slice(0, 12)
+    );
+
+    const offersPC = pcGames.filter(
+        game => game.oldPrice !== null && game.oldPrice > game.price
+    );
+
+    const offersPS = psGames
+        .filter(game => {
+            const primary = getPSEdition(game, "primary");
+            const secondary = getPSEdition(game, "secondary");
+
+            return (
+                (primary.oldPrice && primary.price < primary.oldPrice) ||
+                (secondary.oldPrice && secondary.price < secondary.oldPrice)
+            );
+        })
+        .map(game => ({
+            ...game,
+            platform: "PS",
+            mode: "ps"
+        }));
+
+    renderGrid("offersGrid", [...offersPC, ...offersPS]);
+
+    renderGrid(
+        "psGrid",
+        psGames.map(game => ({
+            ...game,
+            platform: "PS",
+            mode: "ps"
+        })),
+        "لم يتم العثور علي اي العاب"
+    );
 }
 
-function renderAll(){
 
- const online=filterGames(games.filter(g=>g.mode==="online"));
- const offline=filterGames(games.filter(g=>g.mode==="offline"));
 
- renderSection("onlineProducts",online);
- renderSection("offlineProducts",offline);
 
- const featuredNames=FEATURED_GAMES;
+function setActiveNav(element) {
+    document.querySelectorAll(".quick-link").forEach(link => {
+        link.classList.remove("active");
+    });
 
- let featured=filterGames(
-  games.filter(g=>featuredNames.includes(g.name))
- );
-
- featured.sort((a,b)=>
-  featuredNames.indexOf(a.name)-featuredNames.indexOf(b.name)
- );
-
- renderSection("topProducts",featured.slice(0,10),{featured:true});
-
- const onlineOffers=filterGames(
-  games.filter(g=>g.mode==="online"&&g.offer!==null)
- );
-
- const offlineOffers=filterGames(
-  games.filter(g=>g.mode==="offline"&&g.offer!==null)
- );
-
- renderSection("onlineOfferProducts",onlineOffers);
- renderSection("offlineOfferProducts",offlineOffers);
+    element.classList.add("active");
 }
 
-/* السلة */
-function addToCart(id){
- const g=games.find(x=>x.id===id);
- if(!g)return;
 
- if(isSoldOut(g)){
-  toast("عذرًا، لقد نفذت كمية اللعبة");
-  return;
- }
 
- if(!cart[id]){
-  cart[id]={qty:0,price:getPriceForCard(g)};
- }
 
- cart[id].qty++;
- cart[id].price=getPriceForCard(g);
+function openDetails(encodedId) {
+    let id;
 
- saveCart();
- updateCart();
- toast("اتضافت للسلة 🛒");
+    try {
+        id = decodeURIComponent(encodedId);
+    } catch (error) {
+        return;
+    }
+
+    const parts = id.split("|");
+    const gameName = parts[0];
+    const mode = parts[1];
+
+    let game;
+
+    if (mode === "ps") {
+        const base = PS_GAMES.find(item => item.name === gameName);
+
+        if (!base) return;
+
+        game = getPSEdition(base, "primary");
+        selectedPSEdition = "primary";
+
+    } else {
+        game = getGames().find(item => getGameId(item, item.mode) === id);
+    }
+
+    if (!game) return;
+
+    currentGame = game;
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("detailsPage").classList.add("active");
+
+    const cover = document.getElementById("detailsCover");
+
+    cover.src = getImage(game);
+
+    cover.onerror = function () {
+        this.onerror = null;
+        this.src = DEFAULT_IMAGE;
+    };
+
+    document.getElementById("detailsTitle").textContent = game.name;
+
+    document.getElementById("detailsDescription").textContent =
+        getDescription(game);
+
+    let tags = `
+        <span>${escapeText(String(game.year || ""))}</span>
+        <span>${escapeText(game.category || "")}</span>
+    `;
+
+    if (game.platform === "PS") {
+        tags += `<span>PlayStation</span>`;
+    } else {
+        tags += `<span>${modeName(game.mode)}</span>`;
+    }
+
+    document.getElementById("detailsTags").innerHTML = tags;
+
+    const psBox = document.getElementById("psEditionBox");
+
+    if (game.platform === "PS") {
+        psBox.style.display = "block";
+
+        renderPSEditionOptions(
+            PS_GAMES.find(item => item.name === game.name)
+        );
+
+    } else {
+        psBox.style.display = "none";
+    }
+
+    updateDetailsPrice();
+
+    document.getElementById("detailsBackground").style.backgroundImage =
+        `url("${getBackground(game)}")`;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
-function normalizeCart(){
- for(const id of Object.keys(cart)){
-  const g=games.find(x=>x.id===id);
+function renderPSEditionOptions(game) {
+    if (!game) return;
 
-  if(!g||isSoldOut(g)){
-   delete cart[id];
-   continue;
-  }
+    const options = document.getElementById("psEditionOptions");
 
-  if(typeof cart[id]==="number"){
-   cart[id]={qty:cart[id],price:getPriceForCard(g)};
-  }
+    function optionHTML(edition, label) {
+        const item = getPSEdition(game, edition);
 
-  if(!cart[id]||typeof cart[id]!=="object"||
-     !Number.isFinite(Number(cart[id].qty))||
-     Number(cart[id].qty)<=0){
-   delete cart[id];
-   continue;
-  }
+        const discount = item.oldPrice
+            ? getDiscount(item.oldPrice, item.price)
+            : 0;
 
-  cart[id].qty=Math.floor(Number(cart[id].qty));
-  cart[id].price=getPriceForCard(g);
- }
+        const selected = selectedPSEdition === edition;
 
- saveCart();
+        return `
+            <button
+                class="ps-edition-option ${selected ? "selected" : ""}"
+                ${item.soldOut ? "disabled" : ""}
+                onclick="selectPSEdition('${edition}')"
+            >
+
+                <strong>${label}</strong>
+
+                <span>
+                    ${item.soldOut ? "نفذت الكمية" : item.price + " EGP"}
+                </span>
+
+                ${item.oldPrice
+                    ? `<small><span class="ps-old">${item.oldPrice} EGP</span> - خصم ${discount}%</small>`
+                    : ""
+                }
+
+                <small>
+                    ${item.soldOut
+                        ? "غير متاح"
+                        : selected
+                            ? "تم الاختيار"
+                            : "اضغط للاختيار"
+                    }
+                </small>
+
+            </button>
+        `;
+    }
+
+    options.innerHTML =
+        optionHTML("primary", "Primary Account") +
+        optionHTML("secondary", "Secondary Account");
 }
 
-function changeQty(id,delta){
- if(!cart[id])return;
+function selectPSEdition(edition) {
+    if (!currentGame || currentGame.platform !== "PS") return;
 
- const g=games.find(x=>x.id===id);
+    const base = PS_GAMES.find(
+        game => game.name === currentGame.name
+    );
 
- if(g&&isSoldOut(g)){
-  delete cart[id];
-  saveCart();
-  updateCart();
-  toast("لقد نفذت كمية اللعبة");
-  return;
- }
+    if (!base) return;
 
- cart[id].qty+=delta;
+    const item = getPSEdition(base, edition);
 
- if(cart[id].qty<=0)delete cart[id];
+    if (item.soldOut) return;
 
- saveCart();
- updateCart();
+    selectedPSEdition = edition;
+    currentGame = item;
+
+    renderPSEditionOptions(base);
+    updateDetailsPrice();
 }
 
-function removeItem(id){
- delete cart[id];
- saveCart();
- updateCart();
- toast("اتحذفت من السلة");
+function updateDetailsPrice() {
+    if (!currentGame) return;
+
+    document.getElementById("detailsPrice").textContent =
+        currentGame.soldOut
+            ? "نفذت الكمية"
+            : currentGame.price + " EGP";
+
+    const old = document.getElementById("detailsOldPrice");
+    const discountBox = document.getElementById("detailsDiscount");
+
+    const discount = currentGame.oldPrice
+        ? getDiscount(currentGame.oldPrice, currentGame.price)
+        : 0;
+
+    if (discount) {
+        old.textContent =
+            "السعر قبل الخصم: " + currentGame.oldPrice + " EGP";
+
+        discountBox.textContent = "خصم " + discount + "%";
+
+    } else {
+        old.textContent = "";
+        discountBox.textContent = "";
+    }
+
+    const button = document.getElementById("detailsAddButton");
+
+    button.disabled = !!currentGame.soldOut;
+
+    button.textContent = currentGame.soldOut
+        ? "نفذت الكمية"
+        : "أضف إلى السلة";
+
+    button.onclick = function () {
+        if (!currentGame || currentGame.soldOut) return;
+
+        const id = makeId(
+            currentGame.name,
+            currentGame.mode
+        );
+
+        addToCart(id);
+    };
 }
 
-function clearCart(){
- cart={};
- saveCart();
- updateCart();
- toast("السلة اتفضت");
+function showHome() {
+    document.getElementById("detailsPage").classList.remove("active");
+    document.getElementById("homePage").style.display = "block";
+
+    currentGame = null;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
-function updateCart(){
- const ids=Object.keys(cart);
 
- document.getElementById("cartCount").textContent=
- ids.reduce((s,id)=>s+(cart[id]?.qty||0),0);
 
- document.getElementById("cartItems").innerHTML=ids.length?ids.map(id=>{
-  const g=games.find(x=>x.id===id);
-  if(!g)return "";
 
-  const item=cart[id];
-
-  return `
-  <div class="cart-row">
-   <div class="cart-thumb">${coverHTML(g)}</div>
-   <div class="cart-info">
-    <h4>${escapeHTML(g.name)} — ${g.mode==="online"?"أونلاين":"أوفلاين"}</h4>
-    <small>${money(item.price)} للنسخة</small>
-    <div class="qty">
-     <button onclick="changeQty('${g.id}',-1)">−</button>
-     <span>${item.qty}</span>
-     <button onclick="changeQty('${g.id}',1)">+</button>
-     <button class="remove" onclick="removeItem('${g.id}')">إزالة</button>
-    </div>
-   </div>
-  </div>`;
- }).join(""):'<div class="empty">السلة فاضية لسه 🎮</div>';
-
- const total=ids.reduce((sum,id)=>
-  sum+(cart[id]?(Number(cart[id].price)||0)*cart[id].qty:0),0
- );
-
- document.getElementById("cartTotal").textContent=money(total);
+function saveCart() {
+    try {
+        localStorage.setItem("gamevex_cart", JSON.stringify(cart));
+    } catch (error) {
+        console.warn("تعذر حفظ السلة");
+    }
 }
 
-function openCart(){
- document.getElementById("overlay").classList.add("show");
- document.getElementById("cartDrawer").classList.add("show");
- document.body.style.overflow="hidden";
+function addToCart(encodedId) {
+    let id;
+
+    try {
+        id = decodeURIComponent(encodedId);
+    } catch (error) {
+        alert("حدث خطأ في اختيار اللعبة.");
+        return;
+    }
+
+    const parts = id.split("|");
+    const name = parts[0];
+    const mode = parts[1];
+
+    let game;
+
+    if (mode === "primary" || mode === "secondary") {
+        const base = PS_GAMES.find(item => item.name === name);
+
+        if (base) {
+            game = getPSEdition(base, mode);
+        }
+
+    } else {
+        game = getGames().find(
+            item => getGameId(item, item.mode) === id
+        );
+    }
+
+    if (!game) {
+        alert("لم يتم العثور على اللعبة. حاول تحديث الصفحة.");
+        return;
+    }
+
+    if (game.soldOut) {
+        alert("هذه اللعبة غير متاحة حاليًا.");
+        return;
+    }
+
+    if (!Number.isFinite(Number(game.price)) || Number(game.price) < 0) {
+        alert("سعر اللعبة غير صحيح.");
+        return;
+    }
+
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        existing.quantity = Number(existing.quantity || 1) + 1;
+
+    } else {
+        cart.push({
+            id: id,
+            name: game.name,
+            mode: game.mode,
+            platform: game.platform,
+            price: Number(game.price),
+            image: getImage(game),
+            quantity: 1
+        });
+    }
+
+    saveCart();
+    renderCart();
+    toggleCart(true);
 }
 
-function closeCart(){
- document.getElementById("overlay").classList.remove("show");
- document.getElementById("cartDrawer").classList.remove("show");
- document.body.style.overflow="";
+function removeFromCart(index) {
+    if (index < 0 || index >= cart.length) return;
+
+    cart.splice(index, 1);
+
+    saveCart();
+    renderCart();
 }
 
-function checkout(){
- normalizeCart();
- updateCart();
+function renderCart() {
+    const itemsElement = document.getElementById("cartItems");
 
- const ids=Object.keys(cart);
+    const count = cart.reduce(
+        (sum, item) => sum + Number(item.quantity || 0),
+        0
+    );
 
- if(!ids.length){
-  toast("السلة فاضية");
-  return;
- }
+    document.getElementById("cartCount").textContent = count;
 
- const name=document.getElementById("customerName").value.trim();
- const phone=document.getElementById("customerPhone").value.trim();
+    if (!cart.length) {
+        itemsElement.innerHTML = `
+            <p class="empty-message">السلة فارغة حاليًا</p>
+        `;
 
- if(!name){
-  toast("اكتب اسمك الأول");
-  document.getElementById("customerName").focus();
-  return;
- }
+    } else {
+        itemsElement.innerHTML = cart.map((item, index) => `
+            <div class="cart-item">
 
- if(!phone){
-  toast("اكتب رقم تليفونك الأول");
-  document.getElementById("customerPhone").focus();
-  return;
- }
+                <img
+                    src="${escapeText(item.image || DEFAULT_IMAGE)}"
+                    alt="${escapeText(item.name)}"
+                    onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'"
+                >
 
- const phoneDigits=phone.replace(/\D/g,"");
+                <div class="cart-item-info">
 
- if(phoneDigits.length<8){
-  toast("اكتب رقم تليفون صحيح");
-  document.getElementById("customerPhone").focus();
-  return;
- }
+                    <strong>${escapeText(item.name)}</strong>
 
- const lines=ids.map(id=>{
-  const g=games.find(x=>x.id===id);
-  const item=cart[id];
+                    <small>
+                        ${escapeText(modeName(item.mode))} × ${Number(item.quantity)}
+                    </small>
 
-  return g
-   ?`${g.name} (${g.mode==="online"?"أونلاين":"أوفلاين"}) × ${item.qty} = ${item.price*item.qty} جنيه`
-   :"";
- }).filter(Boolean);
+                    <div class="cart-item-price">
+                        ${Number(item.price) * Number(item.quantity)} EGP
+                    </div>
 
- const total=ids.reduce((s,id)=>
-  s+(cart[id]?cart[id].price*cart[id].qty:0),0
- );
+                </div>
 
- const msg=[
-  " مساء الخير GAME.VEX",
-  "الاسم: "+name,
-  "رقم العميل: "+phone,
-  "",
-  ...lines,
-  "",
-  "الإجمالي: "+money(total),
-  "في انتظار تأكيد الطلب",
+                <button
+                    class="remove-item"
+                    onclick="removeFromCart(${index})"
+                >
+                    ×
+                </button>
 
- ].join("\n");
+            </div>
+        `).join("");
+    }
 
- window.open(
-  "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),
-  "_blank"
- );
+    const total = cart.reduce(
+        (sum, item) => sum +
+            (Number(item.price) * Number(item.quantity)),
+        0
+    );
+
+    document.getElementById("cartTotal").textContent = total + " EGP";
+
+    updateCheckoutState();
 }
 
-normalizeCart();
-renderCategories();
+function toggleCart(show) {
+    document
+        .getElementById("cartOverlay")
+        .classList.toggle("active", show);
+}
+
+function overlayClose(event) {
+    if (event.target.id === "cartOverlay") {
+        toggleCart(false);
+    }
+}
+
+
+
+
+const customerNameInput = document.getElementById("customerName");
+const customerPhoneInput = document.getElementById("customerPhone");
+const checkoutButton = document.getElementById("checkoutButton");
+const checkoutHint = document.getElementById("checkoutHint");
+
+customerNameInput.addEventListener("input", updateCheckoutState);
+customerPhoneInput.addEventListener("input", updateCheckoutState);
+
+function isValidEgyptianPhone(phone) {
+    return /^01[0125][0-9]{8}$/.test(phone);
+}
+
+function updateCheckoutState() {
+    const name = customerNameInput.value.trim();
+    const phone = customerPhoneInput.value.trim();
+
+    const validName = name.length >= 3;
+    const validPhone = isValidEgyptianPhone(phone);
+    const hasItems = cart.length > 0;
+
+    checkoutButton.disabled = !(
+        validName &&
+        validPhone &&
+        hasItems
+    );
+
+    if (!hasItems) {
+        checkoutHint.textContent = "أضف لعبة إلى السلة أولًا.";
+
+    } else if (!validName) {
+        checkoutHint.textContent = "اكتب اسمك بالكامل لتفعيل الطلب.";
+
+    } else if (!validPhone) {
+        checkoutHint.textContent =
+            "اكتب رقم هاتف مصري صحيح مكوّن من 11 رقمًا.";
+
+    } else {
+        checkoutHint.textContent =
+            "بياناتك جاهزة. يمكنك إتمام الطلب الآن.";
+    }
+}
+
+
+
+
+function checkout() {
+    if (!cart.length) {
+        alert("السلة فارغة");
+        return;
+    }
+
+    const name = customerNameInput.value.trim();
+    const phone = customerPhoneInput.value.trim();
+
+    if (name.length < 3) {
+        alert("من فضلك اكتب اسمك بالكامل.");
+        customerNameInput.focus();
+        return;
+    }
+
+    if (!isValidEgyptianPhone(phone)) {
+        alert("من فضلك اكتب رقم هاتف مصري صحيح مكوّن من 11 رقمًا.");
+        customerPhoneInput.focus();
+        return;
+    }
+
+    let message = " Hello GAME.VEX\n";
+    message += "الاسم: " + name + "\n";
+    message += "رقم الهاتف: " + phone + "\n\n";
+    message += "الألعاب المطلوبة:\n";
+
+    cart.forEach(item => {
+        message += "- " + item.name +
+            " (" + modeName(item.mode) + ") × " +
+            item.quantity + " = " +
+            (Number(item.price) * Number(item.quantity)) +
+            " EGP\n";
+    });
+
+    const total = cart.reduce(
+        (sum, item) => sum +
+            (Number(item.price) * Number(item.quantity)),
+
+        0
+
+    );
+
+    message += "\nالإجمالي: " + total + " EGP\n";
+
+    message += "رقم Vodafone Cash: " + VODAFONE_CASH_NUMBER + "\n";
+
+    message += "حالة الطلب: في انتظار تأكيد الطلب";
+
+    const whatsappURL =
+
+        "https://wa.me/" +
+
+        WHATSAPP_NUMBER +
+
+        "?text=" +
+
+        encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+
+}
+
+
 
 renderAll();
-updateCart();
 
-document.addEventListener("keydown",function(e){
- if(e.key==="Escape")closeCart();
-});
+renderCart();
