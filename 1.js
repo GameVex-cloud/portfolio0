@@ -28,7 +28,27 @@ const GAMES = [
         featured: true,
         isNew: true
     },
+ {
+        name: "EA FC 27",
+        year: 2026,
+        category: "رياضة",
+        appid: null,
 
+        cover: "images/fc27.webp",
+        background: "images/fc27.wepb",
+
+        onlinePrice: 1300,
+        offlinePrice: 300,
+
+        onlineOffer: null,
+        offlineOffer: null,
+
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
     {
         name: "Red Dead Redemption 2",
         year: 2018,
@@ -38,7 +58,7 @@ const GAMES = [
         cover: "",
         background: "",
 
-        onlinePrice: 300,
+        onlinePrice: 800,
         offlinePrice: 250,
 
         onlineOffer: null,
@@ -104,11 +124,11 @@ const GAMES = [
         cover: "",
         background: "",
 
-        onlinePrice: 300,
+        onlinePrice: 350,
         offlinePrice: 300,
 
         onlineOffer: 250,
-        offlineOffer: 250,
+        offlineOffer: 200,
 
         onlineSoldOut: false,
         offlineSoldOut: false,
@@ -831,6 +851,25 @@ const PS_GAMES = [
         featured: true,
         isNew: true
     },
+     {
+        name: "call of duty modern warfare 4",
+        year: 2026,
+        category: "أكشن",
+
+        cover: "images/cod4.jpg",
+        background: "images/cod4.jpg",
+
+        primaryPrice: 2500,
+        primaryOffer: null,
+        primarySoldOut: false,
+
+        secondaryPrice: 2100,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
 {
         name: "phantom blade zero",
         year: 2026,
@@ -844,6 +883,25 @@ const PS_GAMES = [
         primarySoldOut: false,
 
         secondaryPrice: 1800,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+    {
+        name: "EA FC 27",
+        year: 2026,
+        category: "رياضة",
+
+        cover: "images/fc27.webp",
+        background: "images/fc27.webp",
+
+        primaryPrice: 2200,
+        primaryOffer: null,
+        primarySoldOut: false,
+
+        secondaryPrice: 1950,
         secondaryOffer: null,
         secondarySoldOut: false,
 
