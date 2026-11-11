@@ -841,11 +841,11 @@ const PS_GAMES = [
         background: "images/gta6.jpg",
 
         primaryPrice: 3500,
-        primaryOffer: null,
+        primaryOffer: 3000,
         primarySoldOut: false,
 
         secondaryPrice: 2800,
-        secondaryOffer: null,
+        secondaryOffer: 2500,
         secondarySoldOut: false,
 
         featured: true,
