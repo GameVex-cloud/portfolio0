@@ -1,10 +1,6 @@
-
 const WHATSAPP_NUMBER = "201033002607";
 const VODAFONE_CASH_NUMBER = "01033002607";
 const DEFAULT_IMAGE = "images/default.jpg";
-
-
-
 
 const GAMES = [
     {
@@ -12,40 +8,30 @@ const GAMES = [
         year: 2026,
         category: "أكشن",
         appid: null,
-
         cover: "images/phant.jpg",
         background: "images/phant.jpg",
-
         onlinePrice: null,
         offlinePrice: 800,
-
         onlineOffer: null,
         offlineOffer: 650,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: true
     },
- {
+    {
         name: "EA FC 27",
         year: 2026,
         category: "رياضة",
         appid: null,
-
         cover: "images/fc27.webp",
         background: "images/fc27.wepb",
-
         onlinePrice: 1300,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: true
     },
@@ -54,780 +40,562 @@ const GAMES = [
         year: 2018,
         category: "عالم مفتوح",
         appid: 1174180,
-
         cover: "",
         background: "",
-
         onlinePrice: 800,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Elden Ring",
         year: 2022,
         category: "Souls",
         appid: 1245620,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: 250,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Cyberpunk 2077",
         year: 2020,
         category: "RPG",
         appid: 1091500,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Forza Horizon 5",
         year: 2021,
         category: "سباقات",
         appid: 1551360,
-
         cover: "",
         background: "",
-
         onlinePrice: 350,
         offlinePrice: 300,
-
         onlineOffer: 250,
         offlineOffer: 200,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Forza Horizon 6",
         year: 2026,
         category: "سباقات",
         appid: null,
-
         cover: "images/forza.jpg",
         background: "images/forza.jpg",
-
         onlinePrice: 500,
         offlinePrice: 400,
-
         onlineOffer: 400,
         offlineOffer: 300,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: true
     },
-
     {
         name: "God of War",
         year: 2022,
         category: "أكشن",
         appid: 1593500,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: 250,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Call of Duty: Modern Warfare 4",
         year: 2026,
         category: "تصويب",
         appid: null,
-
         cover: "images/cod4.jpg",
         background: "images/cod4.jpg",
-
         onlinePrice: 3000,
         offlinePrice: 450,
-
         onlineOffer: 2500,
         offlineOffer: 350,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: true
     },
-
     {
         name: "Resident Evil 4",
         year: 2023,
         category: "رعب",
         appid: 2050650,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Spider-Man Remastered",
         year: 2022,
         category: "أكشن",
         appid: 1817070,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
-    
-
     {
         name: "Hogwarts Legacy",
         year: 2023,
         category: "RPG",
         appid: 990080,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Black Myth: Wukong",
         year: 2024,
         category: "أكشن",
         appid: 2358720,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 400,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: true
     },
-
     {
         name: "Grand Theft Auto V",
         year: 2015,
         category: "عالم مفتوح",
         appid: 271590,
-
         cover: "",
         background: "",
-
         onlinePrice: 300,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "The Witcher 3",
         year: 2015,
         category: "RPG",
         appid: 292030,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Sekiro: Shadows Die Twice",
         year: 2019,
         category: "Souls",
         appid: 814380,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
-
     {
         name: "Resident Evil Village",
         year: 2021,
         category: "رعب",
         appid: 1196590,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "The Last of Us Part I",
         year: 2023,
         category: "قصة",
         appid: 1888930,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Lies of P",
         year: 2023,
         category: "Souls",
         appid: 1627720,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Dying Light 2",
         year: 2022,
         category: "عالم مفتوح",
         appid: 534380,
-
         cover: "",
         background: "",
-
         onlinePrice: 300,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Assassin's Creed Valhalla",
         year: 2020,
         category: "عالم مفتوح",
         appid: 2208920,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "It Takes Two",
         year: 2021,
         category: "مغامرات",
         appid: 1426210,
-
         cover: "",
         background: "",
-
         onlinePrice: 300,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Marvel's Spider-Man: Miles Morales",
         year: 2022,
         category: "أكشن",
         appid: 1817190,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Horizon Forbidden West",
         year: 2024,
         category: "عالم مفتوح",
         appid: 2420110,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 350,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Ghost of Tsushima",
         year: 2024,
         category: "أكشن",
         appid: 2215430,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 350,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Silent Hill 2",
         year: 2024,
         category: "رعب",
         appid: 2124490,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 350,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Helldivers 2",
         year: 2024,
         category: "تصويب",
         appid: 553850,
-
         cover: "",
         background: "",
-
         onlinePrice: 350,
         offlinePrice: null,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
-    
-
     {
         name: "Star Wars Jedi: Survivor",
         year: 2023,
         category: "أكشن",
         appid: 1774580,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Lords of the Fallen",
         year: 2023,
         category: "Souls",
         appid: 1501750,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "The Callisto Protocol",
         year: 2022,
         category: "رعب",
         appid: 1544020,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
-    
-
     {
         name: "DOOM Eternal",
         year: 2020,
         category: "تصويب",
         appid: 782330,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Horizon Zero Dawn",
         year: 2020,
         category: "عالم مفتوح",
         appid: 1151640,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Resident Evil 3",
         year: 2020,
         category: "رعب",
         appid: 952060,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Stray",
         year: 2022,
         category: "مغامرات",
         appid: 1332010,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 250,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "A Plague Tale: Requiem",
         year: 2022,
         category: "قصة",
         appid: 1182900,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 300,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: false,
         isNew: false
     },
-
     {
         name: "Baldur's Gate 3",
         year: 2023,
         category: "RPG",
         appid: 1086940,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 400,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     },
-
     {
         name: "Indiana Jones and the Great Circle",
         year: 2024,
         category: "مغامرات",
         appid: 2677660,
-
         cover: "",
         background: "",
-
         onlinePrice: null,
         offlinePrice: 350,
-
         onlineOffer: null,
         offlineOffer: null,
-
         onlineSoldOut: false,
         offlineSoldOut: false,
-
         featured: true,
         isNew: false
     }
-
 ];
-
 
 
 
@@ -836,55 +604,94 @@ const PS_GAMES = [
         name: "GTA 6",
         year: 2026,
         category: "عالم مفتوح",
-
         cover: "images/gta6.jpg",
         background: "images/gta6.jpg",
 
         primaryPrice: 3500,
         primaryOffer: 3000,
         primarySoldOut: false,
-
         secondaryPrice: 2800,
         secondaryOffer: 2500,
         secondarySoldOut: false,
 
+        ps4PrimaryPrice: null,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: null,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: false,
+
         featured: true,
         isNew: true
     },
-     {
+    {
+        name: "forza horizon 6",
+        year: 2026,
+        category: "سباقات",
+        cover: "images/forza.jpg",
+        background: "images/forza.jpg",
+
+        primaryPrice: 3500,
+        primaryOffer: null,
+        primarySoldOut: false,
+        secondaryPrice: 2900,
+        secondaryOffer: null,
+        secondarySoldOut: false,
+
+        ps4PrimaryPrice: null,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: null,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: false,
+
+        featured: true,
+        isNew: true
+    },
+    {
         name: "call of duty modern warfare 4",
         year: 2026,
         category: "أكشن",
-
         cover: "images/cod4.jpg",
         background: "images/cod4.jpg",
 
         primaryPrice: 2500,
         primaryOffer: null,
         primarySoldOut: false,
-
         secondaryPrice: 2100,
         secondaryOffer: null,
         secondarySoldOut: false,
 
+        ps4PrimaryPrice: null,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: null,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: false,
+
         featured: true,
         isNew: true
     },
-{
+    {
         name: "phantom blade zero",
         year: 2026,
         category: "أكشن",
-
         cover: "images/phant.jpg",
         background: "images/phant.jpg",
 
         primaryPrice: 2400,
         primaryOffer: null,
         primarySoldOut: false,
-
         secondaryPrice: 1800,
         secondaryOffer: null,
         secondarySoldOut: false,
+
+        ps4PrimaryPrice: null,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: null,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: false,
 
         featured: true,
         isNew: true
@@ -893,88 +700,99 @@ const PS_GAMES = [
         name: "EA FC 27",
         year: 2026,
         category: "رياضة",
-
         cover: "images/fc27.webp",
         background: "images/fc27.webp",
 
         primaryPrice: 2200,
         primaryOffer: null,
         primarySoldOut: false,
-
         secondaryPrice: 1950,
         secondaryOffer: null,
         secondarySoldOut: false,
 
+        ps4PrimaryPrice: 1200,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: 700,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: true,
+
         featured: true,
         isNew: true
     },
-
     {
         name: "God of War Ragnarök",
         year: 2024,
         category: "أكشن",
-
         cover: "images/god.jpg",
         background: "images/god.jpg",
 
         primaryPrice: 800,
         primaryOffer: null,
         primarySoldOut: false,
-
         secondaryPrice: 600,
         secondaryOffer: null,
         secondarySoldOut: false,
 
+        ps4PrimaryPrice: null,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: null,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: false,
+
         featured: true,
         isNew: false
     },
-
     {
         name: "Marvel's Spider-Man 2",
         year: 2025,
         category: "أكشن",
-
         cover: "images/spider.jpg",
         background: "images/spider.jpg",
 
         primaryPrice: 950,
         primaryOffer: null,
         primarySoldOut: false,
-
         secondaryPrice: 750,
         secondaryOffer: null,
         secondarySoldOut: false,
 
+        ps4PrimaryPrice: null,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: null,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: false,
+
         featured: true,
         isNew: false
     },
-
-
-
     {
         name: "Ghost of yotei",
         year: 2025,
         category: "أكشن",
-
         cover: "images/ghost.jpg",
         background: "images/ghost.jpg",
 
         primaryPrice: 1200,
         primaryOffer: null,
         primarySoldOut: false,
-
         secondaryPrice: 950,
         secondaryOffer: null,
         secondarySoldOut: false,
 
+        ps4PrimaryPrice: null,
+        ps4PrimaryOffer: null,
+        ps4PrimarySoldOut: false,
+        ps4SecondaryPrice: null,
+        ps4SecondaryOffer: null,
+        ps4SecondarySoldOut: false,
+
         featured: true,
         isNew: false
     }
-
 ];
-
-
-
 
 const DESCRIPTIONS = {
     "red dead redemption 2": "عِش مغامرة ملحمية في عالم مفتوح واسع مليء بالتفاصيل والشخصيات والمهام.",
@@ -1016,12 +834,9 @@ function getDescription(game) {
         `استمتع بتجربة ${game.name} في مغامرة تجمع بين أسلوب اللعب المميز والتحديات المختلفة.`;
 }
 
-
-
-
 let activeCategory = "الكل";
 let currentGame = null;
-let selectedPSEdition = "primary";
+let selectedPSEdition = "PS5|primary";
 let cart = [];
 
 try {
@@ -1052,14 +867,16 @@ function makeId(name, mode) {
     return encodeURIComponent(name + "|" + mode).replace(/'/g, "%27");
 }
 
-function getDiscount(oldPrice, newPrice) {
-    if (!oldPrice || !newPrice || newPrice >= oldPrice) return 0;
-
-    return Math.round(((oldPrice - newPrice) / oldPrice) * 100);
+function makePSId(name, platform, edition) {
+    return encodeURIComponent(
+        name + "|PS|" + platform + "|" + edition
+    ).replace(/'/g, "%27");
 }
 
-
-
+function getDiscount(oldPrice, newPrice) {
+    if (!oldPrice || !newPrice || newPrice >= oldPrice) return 0;
+    return Math.round(((oldPrice - newPrice) / oldPrice) * 100);
+}
 
 function getSteamCover(game) {
     if (!game.appid || Number(game.appid) <= 0) {
@@ -1103,30 +920,69 @@ function getGameId(game, mode) {
 
 
 
+function getPSEdition(game, platform, edition) {
+    if (edition === undefined) {
+        edition = platform;
+        platform = "PS5";
+    }
 
-function getPSEdition(game, edition) {
-    const primary = edition === "primary";
+    const isPrimary = edition === "primary";
+    const isPS4 = platform === "PS4";
 
-    const original = primary
-        ? game.primaryPrice
-        : game.secondaryPrice;
+    let original;
+    let offer;
+    let sold;
 
-    const offer = primary
-        ? game.primaryOffer
-        : game.secondaryOffer;
+    if (isPS4) {
+        original = isPrimary
+            ? game.ps4PrimaryPrice
+            : game.ps4SecondaryPrice;
 
-    const sold = primary
-        ? game.primarySoldOut
-        : game.secondarySoldOut;
+        offer = isPrimary
+            ? game.ps4PrimaryOffer
+            : game.ps4SecondaryOffer;
+
+        sold = isPrimary
+            ? game.ps4PrimarySoldOut
+            : game.ps4SecondarySoldOut;
+
+    } else {
+        original = isPrimary
+            ? game.primaryPrice
+            : game.secondaryPrice;
+
+        offer = isPrimary
+            ? game.primaryOffer
+            : game.secondaryOffer;
+
+        sold = isPrimary
+            ? game.primarySoldOut
+            : game.secondarySoldOut;
+    }
+
+    const hasPrice =
+        original !== null &&
+        original !== undefined &&
+        Number.isFinite(Number(original));
+
+    const hasOffer =
+        offer !== null &&
+        offer !== undefined &&
+        Number.isFinite(Number(offer));
+
+    const finalPrice = hasOffer ? Number(offer) : Number(original);
 
     return {
         ...game,
         platform: "PS",
+        psPlatform: platform,
         mode: edition,
         edition: edition,
-        price: offer !== null && offer !== undefined ? offer : original,
-        oldPrice: offer !== null && offer !== undefined ? original : null,
-        soldOut: !!sold
+        originalPrice: hasPrice ? Number(original) : null,
+        price: hasPrice ? finalPrice : null,
+        oldPrice: hasOffer && hasPrice ? Number(original) : null,
+        soldOut: !!sold,
+        unavailable: !hasPrice || !!sold
     };
 }
 
@@ -1134,7 +990,6 @@ function getGames() {
     const result = [];
 
     GAMES.forEach(game => {
-
         if (game.onlinePrice !== null) {
             result.push({
                 ...game,
@@ -1156,27 +1011,31 @@ function getGames() {
                 soldOut: !!game.offlineSoldOut
             });
         }
-
     });
 
     return result;
 }
 
-function modeName(mode) {
+function modeName(mode, platform) {
     if (mode === "online") return "Online";
     if (mode === "offline") return "Offline";
-    if (mode === "primary") return "Primary Account";
-    if (mode === "secondary") return "Secondary Account";
+
+    if (mode === "primary") {
+        return (platform || "PS5") + " Primary Account";
+    }
+
+    if (mode === "secondary") {
+        return (platform || "PS5") + " Secondary Account";
+    }
 
     return "PlayStation";
 }
 
 
 
-
 function psCardPrices(game) {
-    const primary = getPSEdition(game, "primary");
-    const secondary = getPSEdition(game, "secondary");
+    const primary = getPSEdition(game, "PS5", "primary");
+    const secondary = getPSEdition(game, "PS5", "secondary");
 
     function priceHTML(item, label) {
         const discount = item.oldPrice
@@ -1184,13 +1043,13 @@ function psCardPrices(game) {
             : 0;
 
         return `
-            <div class="ps-card-price ${item.soldOut ? "unavailable" : ""}">
+            <div class="ps-card-price ${item.unavailable ? "unavailable" : ""}">
                 ${label}
-
                 <strong>
-                    ${item.soldOut ? "نفذت الكمية" : item.price + " EGP"}
+                    ${item.unavailable
+                        ? (item.soldOut ? "نفذت الكمية" : "غير متاح")
+                        : item.price + " EGP"}
                 </strong>
-
                 ${item.oldPrice
                     ? `<em><del>${item.oldPrice} EGP</del> - خصم ${discount}%</em>`
                     : ""
@@ -1210,21 +1069,22 @@ function psCardPrices(game) {
 function gameCard(game) {
     const image = getImage(game);
     const isPS = game.platform === "PS";
-    const id = makeId(game.name, game.mode);
+    const id = isPS
+        ? makeId(game.name, "ps")
+        : makeId(game.name, game.mode);
 
     let badges = "";
     let priceHTML = "";
     let addButton = "";
 
     if (isPS) {
-
-        const primary = getPSEdition(game, "primary");
-        const secondary = getPSEdition(game, "secondary");
+        const primary = getPSEdition(game, "PS5", "primary");
+        const secondary = getPSEdition(game, "PS5", "secondary");
 
         const hasDiscount = primary.oldPrice || secondary.oldPrice;
-        const bothSold = primary.soldOut && secondary.soldOut;
+        const bothUnavailable = primary.unavailable && secondary.unavailable;
 
-        if (bothSold) {
+        if (bothUnavailable && primary.soldOut && secondary.soldOut) {
             badges += `<span class="game-label sold">نفذت الكمية</span>`;
         }
 
@@ -1247,7 +1107,6 @@ function gameCard(game) {
         `;
 
     } else {
-
         const discount = game.oldPrice
             ? getDiscount(game.oldPrice, game.price)
             : 0;
@@ -1271,13 +1130,11 @@ function gameCard(game) {
         priceHTML = `
             <div class="game-price">
                 <span class="price">${game.price} EGP</span>
-
                 ${game.oldPrice
                     ? `<span class="old-price">${game.oldPrice} EGP</span>`
                     : ""
                 }
             </div>
-
             ${discount
                 ? `<div class="discount-info">وفر ${discount}% على اللعبة</div>`
                 : ""
@@ -1287,33 +1144,26 @@ function gameCard(game) {
         addButton = `
             <button class="add-btn" ${game.soldOut ? "disabled" : ""}
                 onclick="addToCart('${id}')">
-
                 ${game.soldOut ? "نفذت الكمية" : "أضف للسلة"}
-
             </button>
         `;
     }
 
     return `
         <article class="game-card">
-
             <div class="game-cover" onclick="openDetails('${id}')">
-
                 <img
                     src="${escapeText(image)}"
                     alt="${escapeText(game.name)}"
                     loading="lazy"
                     onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'"
                 >
-
                 <div class="game-badges">
                     ${badges}
                 </div>
-
             </div>
 
             <div class="game-info">
-
                 <h3>${escapeText(game.name)}</h3>
 
                 <div class="game-meta">
@@ -1323,17 +1173,12 @@ function gameCard(game) {
                 ${priceHTML}
 
                 <div class="card-actions">
-
                     <button class="details-btn" onclick="openDetails('${id}')">
                         التفاصيل
                     </button>
-
                     ${addButton}
-
                 </div>
-
             </div>
-
         </article>
     `;
 }
@@ -1347,15 +1192,11 @@ function renderGrid(elementId, games, emptyText) {
                 ${emptyText || "لا توجد ألعاب هنا حاليًا"}
             </div>
         `;
-
         return;
     }
 
     element.innerHTML = games.map(gameCard).join("");
 }
-
-
-
 
 function renderCategories() {
     const categories = [
@@ -1411,18 +1252,9 @@ function renderAll() {
     ];
 
     renderCategories();
-
     renderGrid("allGamesGrid", allGames);
-
-    renderGrid(
-        "onlineGrid",
-        pcGames.filter(game => game.mode === "online")
-    );
-
-    renderGrid(
-        "offlineGrid",
-        pcGames.filter(game => game.mode === "offline")
-    );
+    renderGrid("onlineGrid", pcGames.filter(game => game.mode === "online"));
+    renderGrid("offlineGrid", pcGames.filter(game => game.mode === "offline"));
 
     const featuredPC = pcGames.filter(game => game.featured);
 
@@ -1445,12 +1277,17 @@ function renderAll() {
 
     const offersPS = psGames
         .filter(game => {
-            const primary = getPSEdition(game, "primary");
-            const secondary = getPSEdition(game, "secondary");
+            const editions = [
+                getPSEdition(game, "PS4", "primary"),
+                getPSEdition(game, "PS4", "secondary"),
+                getPSEdition(game, "PS5", "primary"),
+                getPSEdition(game, "PS5", "secondary")
+            ];
 
-            return (
-                (primary.oldPrice && primary.price < primary.oldPrice) ||
-                (secondary.oldPrice && secondary.price < secondary.oldPrice)
+            return editions.some(item =>
+                item.oldPrice !== null &&
+                item.price !== null &&
+                item.price < item.oldPrice
             );
         })
         .map(game => ({
@@ -1472,9 +1309,6 @@ function renderAll() {
     );
 }
 
-
-
-
 function setActiveNav(element) {
     document.querySelectorAll(".quick-link").forEach(link => {
         link.classList.remove("active");
@@ -1485,6 +1319,28 @@ function setActiveNav(element) {
 
 
 
+function getFirstAvailablePSEdition(game) {
+    const choices = [
+        { platform: "PS5", edition: "primary" },
+        { platform: "PS5", edition: "secondary" },
+        { platform: "PS4", edition: "primary" },
+        { platform: "PS4", edition: "secondary" }
+    ];
+
+    for (const choice of choices) {
+        const item = getPSEdition(
+            game,
+            choice.platform,
+            choice.edition
+        );
+
+        if (!item.unavailable) {
+            return choice;
+        }
+    }
+
+    return null;
+}
 
 function openDetails(encodedId) {
     let id;
@@ -1506,8 +1362,21 @@ function openDetails(encodedId) {
 
         if (!base) return;
 
-        game = getPSEdition(base, "primary");
-        selectedPSEdition = "primary";
+        const firstChoice = getFirstAvailablePSEdition(base);
+
+        if (firstChoice) {
+            selectedPSEdition =
+                firstChoice.platform + "|" + firstChoice.edition;
+
+            game = getPSEdition(
+                base,
+                firstChoice.platform,
+                firstChoice.edition
+            );
+        } else {
+            selectedPSEdition = "PS5|primary";
+            game = getPSEdition(base, "PS5", "primary");
+        }
 
     } else {
         game = getGames().find(item => getGameId(item, item.mode) === id);
@@ -1555,7 +1424,6 @@ function openDetails(encodedId) {
         renderPSEditionOptions(
             PS_GAMES.find(item => item.name === game.name)
         );
-
     } else {
         psBox.style.display = "none";
     }
@@ -1571,57 +1439,70 @@ function openDetails(encodedId) {
     });
 }
 
+
+
 function renderPSEditionOptions(game) {
     if (!game) return;
 
     const options = document.getElementById("psEditionOptions");
 
-    function optionHTML(edition, label) {
-        const item = getPSEdition(game, edition);
+    function optionHTML(platform, edition, label) {
+        const item = getPSEdition(game, platform, edition);
 
-        const discount = item.oldPrice
+        const discount = item.oldPrice !== null
             ? getDiscount(item.oldPrice, item.price)
             : 0;
 
-        const selected = selectedPSEdition === edition;
+        const key = platform + "|" + edition;
+        const selected = selectedPSEdition === key;
+
+        let priceText = "";
+
+        if (item.soldOut) {
+            priceText = "نفذت الكمية";
+        } else if (item.price === null) {
+            priceText = "غير متوفر";
+        } else {
+            priceText = item.price + " EGP";
+        }
 
         return `
             <button
                 class="ps-edition-option ${selected ? "selected" : ""}"
-                ${item.soldOut ? "disabled" : ""}
-                onclick="selectPSEdition('${edition}')"
+                ${item.unavailable ? "disabled" : ""}
+                onclick="selectPSEdition('${platform}', '${edition}')"
             >
-
                 <strong>${label}</strong>
 
-                <span>
-                    ${item.soldOut ? "نفذت الكمية" : item.price + " EGP"}
-                </span>
+                <span>${priceText}</span>
 
-                ${item.oldPrice
+                ${item.oldPrice !== null && discount
                     ? `<small><span class="ps-old">${item.oldPrice} EGP</span> - خصم ${discount}%</small>`
                     : ""
                 }
 
                 <small>
                     ${item.soldOut
-                        ? "غير متاح"
-                        : selected
-                            ? "تم الاختيار"
-                            : "اضغط للاختيار"
+                        ? "غير متاح حاليًا"
+                        : item.price === null
+                            ? "غير متوفر"
+                            : selected
+                                ? "تم الاختيار"
+                                : "اضغط للاختيار"
                     }
                 </small>
-
             </button>
         `;
     }
 
     options.innerHTML =
-        optionHTML("primary", "Primary Account") +
-        optionHTML("secondary", "Secondary Account");
+        optionHTML("PS4", "primary", "PS4 Primary") +
+        optionHTML("PS4", "secondary", "PS4 Secondary") +
+        optionHTML("PS5", "primary", "PS5 Primary") +
+        optionHTML("PS5", "secondary", "PS5 Secondary");
 }
 
-function selectPSEdition(edition) {
+function selectPSEdition(platform, edition) {
     if (!currentGame || currentGame.platform !== "PS") return;
 
     const base = PS_GAMES.find(
@@ -1630,11 +1511,11 @@ function selectPSEdition(edition) {
 
     if (!base) return;
 
-    const item = getPSEdition(base, edition);
+    const item = getPSEdition(base, platform, edition);
 
-    if (item.soldOut) return;
+    if (item.unavailable) return;
 
-    selectedPSEdition = edition;
+    selectedPSEdition = platform + "|" + edition;
     currentGame = item;
 
     renderPSEditionOptions(base);
@@ -1644,15 +1525,19 @@ function selectPSEdition(edition) {
 function updateDetailsPrice() {
     if (!currentGame) return;
 
-    document.getElementById("detailsPrice").textContent =
+    const priceElement = document.getElementById("detailsPrice");
+
+    priceElement.textContent =
         currentGame.soldOut
             ? "نفذت الكمية"
-            : currentGame.price + " EGP";
+            : currentGame.price === null
+                ? "السعر غير محدد"
+                : currentGame.price + " EGP";
 
     const old = document.getElementById("detailsOldPrice");
     const discountBox = document.getElementById("detailsDiscount");
 
-    const discount = currentGame.oldPrice
+    const discount = currentGame.oldPrice !== null
         ? getDiscount(currentGame.oldPrice, currentGame.price)
         : 0;
 
@@ -1661,7 +1546,6 @@ function updateDetailsPrice() {
             "السعر قبل الخصم: " + currentGame.oldPrice + " EGP";
 
         discountBox.textContent = "خصم " + discount + "%";
-
     } else {
         old.textContent = "";
         discountBox.textContent = "";
@@ -1669,19 +1553,33 @@ function updateDetailsPrice() {
 
     const button = document.getElementById("detailsAddButton");
 
-    button.disabled = !!currentGame.soldOut;
+    const unavailable =
+        !!currentGame.soldOut ||
+        currentGame.price === null ||
+        currentGame.price === undefined;
+
+    button.disabled = unavailable;
 
     button.textContent = currentGame.soldOut
         ? "نفذت الكمية"
-        : "أضف إلى السلة";
+        : currentGame.price === null
+            ? "السعر غير محدد"
+            : "أضف إلى السلة";
 
     button.onclick = function () {
-        if (!currentGame || currentGame.soldOut) return;
+        if (!currentGame || unavailable) return;
 
-        const id = makeId(
-            currentGame.name,
-            currentGame.mode
-        );
+        let id;
+
+        if (currentGame.platform === "PS") {
+            id = makePSId(
+                currentGame.name,
+                currentGame.psPlatform,
+                currentGame.mode
+            );
+        } else {
+            id = makeId(currentGame.name, currentGame.mode);
+        }
 
         addToCart(id);
     };
@@ -1698,7 +1596,6 @@ function showHome() {
         behavior: "smooth"
     });
 }
-
 
 
 
@@ -1726,11 +1623,22 @@ function addToCart(encodedId) {
 
     let game;
 
-    if (mode === "primary" || mode === "secondary") {
+    if (mode === "PS") {
+        const platform = parts[2];
+        const edition = parts[3];
+
+        const base = PS_GAMES.find(item => item.name === name);
+
+        if (base && (platform === "PS4" || platform === "PS5")) {
+            game = getPSEdition(base, platform, edition);
+        }
+
+    } else if (mode === "primary" || mode === "secondary") {
+        // دعم عناصر السلة القديمة المحفوظة
         const base = PS_GAMES.find(item => item.name === name);
 
         if (base) {
-            game = getPSEdition(base, mode);
+            game = getPSEdition(base, "PS5", mode);
         }
 
     } else {
@@ -1744,8 +1652,12 @@ function addToCart(encodedId) {
         return;
     }
 
-    if (game.soldOut) {
-        alert("هذه اللعبة غير متاحة حاليًا.");
+    if (game.unavailable || game.soldOut) {
+        alert(
+            game.price === null
+                ? "لم يتم تحديد سعر هذا الاختيار بعد."
+                : "هذه اللعبة غير متاحة حاليًا."
+        );
         return;
     }
 
@@ -1758,13 +1670,13 @@ function addToCart(encodedId) {
 
     if (existing) {
         existing.quantity = Number(existing.quantity || 1) + 1;
-
     } else {
         cart.push({
             id: id,
             name: game.name,
             mode: game.mode,
             platform: game.platform,
+            psPlatform: game.psPlatform || null,
             price: Number(game.price),
             image: getImage(game),
             quantity: 1
@@ -1799,11 +1711,9 @@ function renderCart() {
         itemsElement.innerHTML = `
             <p class="empty-message">السلة فارغة حاليًا</p>
         `;
-
     } else {
         itemsElement.innerHTML = cart.map((item, index) => `
             <div class="cart-item">
-
                 <img
                     src="${escapeText(item.image || DEFAULT_IMAGE)}"
                     alt="${escapeText(item.name)}"
@@ -1811,17 +1721,19 @@ function renderCart() {
                 >
 
                 <div class="cart-item-info">
-
                     <strong>${escapeText(item.name)}</strong>
 
                     <small>
-                        ${escapeText(modeName(item.mode))} × ${Number(item.quantity)}
+                        ${escapeText(
+                            item.platform === "PS"
+                                ? modeName(item.mode, item.psPlatform || "PS5")
+                                : modeName(item.mode)
+                        )} × ${Number(item.quantity)}
                     </small>
 
                     <div class="cart-item-price">
                         ${Number(item.price) * Number(item.quantity)} EGP
                     </div>
-
                 </div>
 
                 <button
@@ -1830,7 +1742,6 @@ function renderCart() {
                 >
                     ×
                 </button>
-
             </div>
         `).join("");
     }
@@ -1857,7 +1768,6 @@ function overlayClose(event) {
         toggleCart(false);
     }
 }
-
 
 
 
@@ -1889,22 +1799,16 @@ function updateCheckoutState() {
 
     if (!hasItems) {
         checkoutHint.textContent = "أضف لعبة إلى السلة أولًا.";
-
     } else if (!validName) {
         checkoutHint.textContent = "اكتب اسمك بالكامل لتفعيل الطلب.";
-
     } else if (!validPhone) {
         checkoutHint.textContent =
             "اكتب رقم هاتف مصري صحيح مكوّن من 11 رقمًا.";
-
     } else {
         checkoutHint.textContent =
             "بياناتك جاهزة. يمكنك إتمام الطلب الآن.";
     }
 }
-
-
-
 
 function checkout() {
     if (!cart.length) {
@@ -1933,8 +1837,12 @@ function checkout() {
     message += "الألعاب المطلوبة:\n";
 
     cart.forEach(item => {
+        const selectedMode = item.platform === "PS"
+            ? modeName(item.mode, item.psPlatform || "PS5")
+            : modeName(item.mode);
+
         message += "- " + item.name +
-            " (" + modeName(item.mode) + ") × " +
+            " (" + selectedMode + ") × " +
             item.quantity + " = " +
             (Number(item.price) * Number(item.quantity)) +
             " EGP\n";
@@ -1943,33 +1851,21 @@ function checkout() {
     const total = cart.reduce(
         (sum, item) => sum +
             (Number(item.price) * Number(item.quantity)),
-
         0
-
     );
 
     message += "\nالإجمالي: " + total + " EGP\n";
-
     message += "رقم Vodafone Cash: " + VODAFONE_CASH_NUMBER + "\n";
-
     message += "حالة الطلب: في انتظار تأكيد الطلب";
 
     const whatsappURL =
-
         "https://wa.me/" +
-
         WHATSAPP_NUMBER +
-
         "?text=" +
-
         encodeURIComponent(message);
 
     window.open(whatsappURL, "_blank");
-
 }
 
-
-
 renderAll();
-
 renderCart();
