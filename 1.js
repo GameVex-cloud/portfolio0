@@ -4,7 +4,25 @@ const DEFAULT_IMAGE = "images/default.jpg";
 
 const GAMES = [
     {
-        name: "phantom blade zero",
+        name: "Assassins Creed PACK",
+        year: null,
+        category: "قصة",
+        isPack: true,
+        description: "استمتع بجميع اجزاء لعبة assasin creed",
+        appid: null,
+        cover: "images/pack one.jpeg",
+        background: "images/pack one.jpeg",
+        onlinePrice: null,
+        offlinePrice: 600,
+        onlineOffer: null,
+        offlineOffer: 500,
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+        featured: true,
+        isNew: false
+    },
+    {
+        name: "Phantom Blade ZERO",
         year: 2026,
         category: "أكشن",
         appid: null,
@@ -20,6 +38,24 @@ const GAMES = [
         isNew: true
     },
     {
+        name: "Resedint Evil PACK",
+        year: null,
+        category: "رعب",
+        description: "جميع سلسلة لعبة رزيندت ايفل استمتع بها الان",
+        isPack: true,
+        appid: null,
+        cover: "images/pack2.jpeg",
+        background: "",
+        onlinePrice: null,
+        offlinePrice: 550,
+        onlineOffer: null,
+        offlineOffer: 450,
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+        featured: true,
+        isNew: false
+    },
+    {
         name: "EA FC 27",
         year: 2026,
         category: "رياضة",
@@ -30,6 +66,23 @@ const GAMES = [
         offlinePrice: 300,
         onlineOffer: null,
         offlineOffer: null,
+        onlineSoldOut: false,
+        offlineSoldOut: false,
+        featured: true,
+        isNew: true
+    },
+    {
+        name: "RE9",
+        year: 2026,
+        category: "رعب",
+        appid: null,
+        cover: "images/re9.jpg",
+        background: "",
+        description: "افضل لعبة لعام 2026 خوض تجربة مليئة بالاستكشافات واللحاظات المرعبة",
+        onlinePrice: null,
+        offlinePrice: 300,
+        onlineOffer: null,
+        offlineOffer: 250,
         onlineSoldOut: false,
         offlineSoldOut: false,
         featured: true,
@@ -597,8 +650,6 @@ const GAMES = [
     }
 ];
 
-
-
 const PS_GAMES = [
     {
         name: "GTA 6",
@@ -606,7 +657,7 @@ const PS_GAMES = [
         category: "عالم مفتوح",
         cover: "images/gta6.jpg",
         background: "images/gta6.jpg",
-
+        description: "استمتع باكبر تطور مر علي سلسلة GTA",
         primaryPrice: 3500,
         primaryOffer: 3000,
         primarySoldOut: false,
@@ -830,6 +881,10 @@ const DESCRIPTIONS = {
 };
 
 function getDescription(game) {
+    if (game.description && game.description.trim() !== "") {
+        return game.description;
+    }
+
     return DESCRIPTIONS[game.name.toLowerCase()] ||
         `استمتع بتجربة ${game.name} في مغامرة تجمع بين أسلوب اللعب المميز والتحديات المختلفة.`;
 }
@@ -917,8 +972,6 @@ function getBackground(game) {
 function getGameId(game, mode) {
     return game.name + "|" + mode;
 }
-
-
 
 function getPSEdition(game, platform, edition) {
     if (edition === undefined) {
@@ -1030,8 +1083,6 @@ function modeName(mode, platform) {
 
     return "PlayStation";
 }
-
-
 
 function psCardPrices(game) {
     const primary = getPSEdition(game, "PS5", "primary");
@@ -1203,9 +1254,11 @@ function renderCategories() {
         "الكل",
         ...new Set(
             [...GAMES, ...PS_GAMES]
+                .filter(game => !game.isPack)
                 .map(game => game.category)
                 .filter(Boolean)
-        )
+        ),
+        "Packs"
     ];
 
     document.getElementById("categories").innerHTML =
@@ -1236,7 +1289,12 @@ function renderAll() {
         String(game.category || "").toLowerCase().includes(search)
     ) && (
         activeCategory === "الكل" ||
-        game.category === activeCategory
+        (activeCategory === "Packs" && game.isPack === true) ||
+        (
+            activeCategory !== "Packs" &&
+            !game.isPack &&
+            game.category === activeCategory
+        )
     );
 
     const pcGames = getGames().filter(matches);
@@ -1316,8 +1374,6 @@ function setActiveNav(element) {
 
     element.classList.add("active");
 }
-
-
 
 function getFirstAvailablePSEdition(game) {
     const choices = [
@@ -1438,8 +1494,6 @@ function openDetails(encodedId) {
         behavior: "smooth"
     });
 }
-
-
 
 function renderPSEditionOptions(game) {
     if (!game) return;
@@ -1596,8 +1650,6 @@ function showHome() {
         behavior: "smooth"
     });
 }
-
-
 
 function saveCart() {
     try {
@@ -1768,8 +1820,6 @@ function overlayClose(event) {
         toggleCart(false);
     }
 }
-
-
 
 const customerNameInput = document.getElementById("customerName");
 const customerPhoneInput = document.getElementById("customerPhone");
